@@ -70,7 +70,7 @@
                                             <span class="style-font">Avrio Global Inc is a software company based </span> in Ontario, Canada. We build <span class="style-color"> secure digital products for</span> ambitious businesses.
                                         </h2>
                                         <div class="sec-content">
-                                            <a class="theme-btn-main style-2 bg-white-style" href="contact.html">
+                                            <a class="theme-btn-main style-2 bg-white-style" href="{{ url('/contact') }}">
                                                 <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
                                                 <span class="theme-btn">Get In Touch</span>
                                                 <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>
@@ -275,7 +275,7 @@
                                             <p class="text wow fadeInUp" data-wow-delay=".3s">
                                                 We help ambitious businesses break barriers with secure software and smart digital strategies. Our engineering team is driven by innovation and fueled by expertise, delivering solutions that improve operations and drive growth. Whether you're a startup or an established business, we bring your vision to life.
                                             </p>
-                                            <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".5s" href="contact.html">
+                                            <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".5s" href="{{ url('/contact') }}">
                                                 <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
                                                 <span class="theme-btn">let’s talk</span>
                                                 <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>
@@ -326,7 +326,7 @@
                                     <p>
                                         Meet the software experts who turn complex ideas into reliable digital products.
                                     </p>
-                                    <a href="team.html" class="news-btn">
+                                    <a href="{{ url('/about') }}" class="news-btn">
                                         <span class="text">
                                             <span class="text-default">Join Our Team  <i class="fa-regular fa-arrow-up-right"></i></span>
                                             <span class="text-hover">Join Our Team  <i class="fa-regular fa-arrow-up-right"></i></span>
@@ -394,60 +394,7 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-1">
-                                        <img src="{{ asset('FrontendAssets/img/inner-page/Inge.jpg')}}" alt="img">
-                                        <img src="{{ asset('FrontendAssets/img/inner-page/Inge.jpg')}}" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Business Development Lead - USA
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Inge Marie Urbancic</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                                {{-- <div class="col-lg-6 col-md-6">
-                                    <div class="team-image-items-5 design-choose-item-2">
-                                        <img src="{{ asset('FrontendAssets/img/inner-page/team-4.jpg')}}" alt="img">
-                                        <img src="{{ asset('FrontendAssets/img/inner-page/team-4.jpg')}}" alt="img">
-                                        <div class="team-content">
-                                            <div class="content">
-                                                <p>
-                                                    Creative Director
-                                                </p>
-                                                <h3 class="title">
-                                                    <a href="team-details.html">Helena Jhon son</a>
-                                                </h3>
-                                            </div>
-                                            <div class="left-items">
-                                                <div class="social-icon d-flex align-items-center">
-                                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                                </div>
-                                                <a href="team-details.html" class="icon">
-                                                    <i class="fa-regular fa-arrow-up-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
+ 
                             </div>
                         </div>
                     </section>
@@ -526,7 +473,7 @@
                                         <span class="style-font">Let's Create The</span> Best Product <br> Experience For Your Next Project
                                     </h2>
                                 </div>
-                                <a class="theme-btn-main style-2 mt-4 wow fadeInUp" data-wow-delay=".3s" href="contact.html">
+                                <a class="theme-btn-main style-2 mt-4 wow fadeInUp" data-wow-delay=".3s" href="{{ url('/contact') }}">
                                     <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i> </span>
                                     <span class="theme-btn">Get In Touch</span>
                                     <span class="theme-btn-arrow-right"> <i class="fa-solid fa-arrow-up-right"></i> </span>

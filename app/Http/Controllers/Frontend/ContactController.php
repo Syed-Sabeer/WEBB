@@ -9,6 +9,7 @@ use App\Models\ContactCmsPage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -26,7 +27,6 @@ class ContactController extends Controller
                 'email' => 'required|email|max:255',
                 'subject' => 'required|string|max:255',
                 'message' => 'required|string|max:1000',
-                'consent' => 'required|accepted',
             ]);
 
             // Check for duplicate submission within the last 30 seconds (very recent)
@@ -79,6 +79,17 @@ class ContactController extends Controller
             });
 
             Log::info('Contact form submitted successfully:', ['id' => $contactSubmission->id]);
+
+            try {
+                Mail::send('emails.contact-admin', ['contact' => $contactSubmission], function ($mail) use ($contactSubmission) {
+                    $mail->to('info@avrioglobal.io')->replyTo($contactSubmission->email, $contactSubmission->fullname)->subject('New contact enquiry: ' . $contactSubmission->subject);
+                });
+                Mail::send('emails.contact-confirmation', ['contact' => $contactSubmission], function ($mail) use ($contactSubmission) {
+                    $mail->to($contactSubmission->email, $contactSubmission->fullname)->subject('We received your message — Avrio Global');
+                });
+            } catch (\Throwable $mailError) {
+                Log::error('Contact email delivery failed', ['message' => $mailError->getMessage()]);
+            }
 
             return response()->json([
                 'status' => 'success',

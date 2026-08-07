@@ -7,12 +7,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Validator;
+use App\Models\Blog;
 
 class WebsiteController extends Controller
 {
 	public function index()
 	{
-		return view('frontend.index');
+		$latestBlogs = Blog::where('visibility', 1)->latest()->take(3)->get();
+		return view('frontend.index', compact('latestBlogs'));
 	}
 
 	public function about()

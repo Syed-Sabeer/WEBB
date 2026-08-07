@@ -55,6 +55,7 @@ Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('
 Route::get('/', [WebsiteController::class, 'index'])->name('home');
 Route::get('/about', [WebsiteController::class, 'about'])->name('about');
 Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
+Route::post('/contact/submit', [ContactController::class, 'store'])->middleware('throttle:5,1')->name('contact.submit');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, 'detail'])->name('blog.detail');
 Route::get('/service', [WebsiteController::class, 'service'])->name('service');
@@ -113,16 +114,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::delete('service/{id}', [AdminServiceController::class, 'destroy'])->name('service.destroy');
     Route::post('service/{id}/toggle-visibility', [AdminServiceController::class, 'toggleVisibility'])->name('service.toggleVisibility');
 
-    // Mini Service Routes
-    Route::get('mini-service', [AdminMiniServiceController::class, 'index'])->name('mini-service.index');
-    Route::get('mini-service/add', [AdminMiniServiceController::class, 'add'])->name('mini-service.add');
-    Route::post('mini-service/store', [AdminMiniServiceController::class, 'store'])->name('mini-service.store');
-    Route::get('mini-service/{id}/edit', [AdminMiniServiceController::class, 'edit'])->name('mini-service.edit');
-    Route::put('mini-service/{id}', [AdminMiniServiceController::class, 'update'])->name('mini-service.update');
-    Route::delete('mini-service/{id}', [AdminMiniServiceController::class, 'destroy'])->name('mini-service.destroy');
-    Route::post('mini-service/{id}/toggle-visibility', [AdminMiniServiceController::class, 'toggleVisibility'])->name('mini-service.toggleVisibility');
-
-
+ 
     // Testimonials Routes
     Route::get('testimonials', [AdminTestimonialController::class, 'index'])->name('testimonials.index');
     Route::get('testimonials/add', [AdminTestimonialController::class, 'add'])->name('testimonials.add');
@@ -131,15 +123,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::put('testimonials/{id}', [AdminTestimonialController::class, 'update'])->name('testimonials.update');
     Route::delete('testimonials/{id}', [AdminTestimonialController::class, 'destroy'])->name('testimonials.destroy');
     Route::post('testimonials/{id}/toggle-visibility', [AdminTestimonialController::class, 'toggleVisibility'])->name('testimonials.toggleVisibility');
-
-    // Hero Section CRUD Routes
-    Route::get('hero-section', [AdminHeroSectionCrudController::class, 'index'])->name('hero-section.index');
-    Route::get('hero-section/add', [AdminHeroSectionCrudController::class, 'add'])->name('hero-section.add');
-    Route::post('hero-section/store', [AdminHeroSectionCrudController::class, 'store'])->name('hero-section.store');
-    Route::get('hero-section/{id}/edit', [AdminHeroSectionCrudController::class, 'edit'])->name('hero-section.edit');
-    Route::put('hero-section/{id}', [AdminHeroSectionCrudController::class, 'update'])->name('hero-section.update');
-    Route::delete('hero-section/{id}', [AdminHeroSectionCrudController::class, 'destroy'])->name('hero-section.destroy');
-    Route::post('hero-section/{id}/toggle-visibility', [AdminHeroSectionCrudController::class, 'toggleVisibility'])->name('hero-section.toggleVisibility');
 
 
 
@@ -155,14 +138,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::delete('blog/categories/{id}', [AdminBlogController::class, 'categoryDestroy'])->name('blog.categories.destroy');
 
 
-    // Customer Routes
-    Route::get('customer', [AdminCustomerController::class, 'index'])->name('customer.index');
-    Route::get('customer/add', [AdminCustomerController::class, 'add'])->name('customer.add');
-    Route::post('customer/store', [AdminCustomerController::class, 'store'])->name('customer.store');
-    Route::get('customer/{id}/edit', [AdminCustomerController::class, 'edit'])->name('customer.edit');
-    Route::put('customer/{id}', [AdminCustomerController::class, 'update'])->name('customer.update');
-    Route::delete('customer/{id}', [AdminCustomerController::class, 'destroy'])->name('customer.destroy');
-    Route::post('customer/{id}/toggle-status', [AdminCustomerController::class, 'toggleStatus'])->name('customer.toggleStatus');
 
 
     // About Section Routes
@@ -174,14 +149,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::put('newsbar/{id}', [AdminNewsbarController::class, 'update'])->name('newsbar.update');
     Route::delete('newsbar/{id}', [AdminNewsbarController::class, 'destroy'])->name('newsbar.destroy');
 
-    // Newsletter Routes
-    Route::get('newsletter', [AdminNewsletterController::class, 'index'])->name('newsletter.index');
-    Route::get('newsletter/add', [AdminNewsletterController::class, 'add'])->name('newsletter.add');
-    Route::post('newsletter/store', [AdminNewsletterController::class, 'store'])->name('newsletter.store');
-    Route::get('newsletter/{id}/edit', [AdminNewsletterController::class, 'edit'])->name('newsletter.edit');
-    Route::put('newsletter/{id}', [AdminNewsletterController::class, 'update'])->name('newsletter.update');
-    Route::delete('newsletter/{id}', [AdminNewsletterController::class, 'destroy'])->name('newsletter.destroy');
-    Route::post('newsletter/{id}/toggle-visibility', [AdminNewsletterController::class, 'toggleVisibility'])->name('newsletter.toggleVisibility');
 
     // Company Settings
     Route::get('company-settings', [AdminSettingController::class, 'index'])->name('company.settings');
@@ -222,12 +189,5 @@ Route::delete('contacts/{id}', [AdminContactController::class, 'destroy'])->name
 
 
 });
-
-// TEMPORARY: Test logging route for debugging
-Route::get('logtest', function() {
-    \Log::info('Log test route hit!');
-    return 'Logged!';
-});
-
 
 

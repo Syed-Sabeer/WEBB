@@ -2,6 +2,7 @@
 
 
 @section('css')
+<style>.contact-submit-loading{opacity:.75;pointer-events:none}.contact-spinner{display:none;width:1rem;height:1rem;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:contact-spin .7s linear infinite;vertical-align:-.15em;margin-right:.45rem}@keyframes contact-spin{to{transform:rotate(360deg)}}</style>
 
 @endsection
 
@@ -94,28 +95,28 @@
                                     <div class="col-lg-6">
                                         <div class="contact-from-box">
                                             <h2>Start your software project</h2>
-                                            <form action="contact.php" id="contact-form" class="contact-form-box">
+                                            <form action="{{ route('contact.submit') }}" method="POST" id="contact-form" class="contact-form-box">@csrf
                                                 <div class="row g-4 align-items-center">
                                                     <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
                                                         <div class="form-clt">
-                                                            <input type="text" placeholder="Full name *">
+                                                            <input type="text" name="fullname" placeholder="Full name *" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
                                                         <div class="form-clt">
-                                                            <input type="text" placeholder="Email address *">
+                                                            <input type="email" name="email" placeholder="Email address *" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".3s">
                                                         <div class="form-clt">
-                                                            <input type="text" placeholder="Phone number *">
+                                                            <input type="text" name="phone" placeholder="Phone number">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
                                                         <div class="form-clt">
                                                             <div class="form">
-                                                                <select class="single-select w-100">
-                                                                    <option>Choose a service</option>
+                                                                <select class="single-select w-100" name="subject" required>
+                                                                    <option value="">Choose a service</option>
                                                                     <option>Web App Development</option>
                                                                     <option>Mobile App Development</option>
                                                                     <option>AI/ML Development</option>
@@ -132,7 +133,7 @@
                                                     </div>
                                                     <div class="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
                                                         <button type="submit" class="thems-btn w-100 wow fadeInUp" data-wow-delay=".5s">
-                                                            Send message <i class="fa-solid fa-arrow-up-right"></i>
+                                                            <span class="contact-spinner"></span><span class="contact-submit-label">Send message</span> <i class="fa-solid fa-arrow-up-right"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -148,5 +149,5 @@
 @endsection
 
 @section('script')
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><script>document.addEventListener('DOMContentLoaded',()=>{const f=document.getElementById('contact-form');if(!f)return;let submitting=false;f.addEventListener('submit',async e=>{e.preventDefault();if(submitting)return;submitting=true;const b=f.querySelector('button[type=submit]'),s=b.querySelector('.contact-spinner'),l=b.querySelector('.contact-submit-label');b.classList.add('contact-submit-loading');s.style.display='inline-block';l.textContent='Sending...';try{const r=await fetch(f.action,{method:'POST',headers:{Accept:'application/json','X-Requested-With':'XMLHttpRequest'},body:new FormData(f)}),d=await r.json();Swal.fire({icon:d.status==='success'?'success':(d.icon||'error'),title:d.title||'Message',text:d.message||'Please try again.',confirmButtonColor:'#cf1f42'});if(d.status==='success')f.reset()}catch(x){Swal.fire({icon:'error',title:'Connection error',text:'Please try again.',confirmButtonColor:'#cf1f42'})}finally{submitting=false;b.classList.remove('contact-submit-loading');s.style.display='none';l.textContent='Send message'}})})</script>
 @endsection

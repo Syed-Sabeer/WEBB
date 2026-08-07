@@ -25,7 +25,7 @@
                                             an agency and produce like a visuals for brands & agencies.
                                         </p>
                                         <div class="hero-button">
-                                            <a class="theme-btn-main style-2 bg-white-style" href="contact.html">
+                                            <a class="theme-btn-main style-2 bg-white-style" href="{{ url('/contact') }}">
                                                 <span class="theme-btn-arrow-left"> <i
                                                         class="fa-solid fa-arrow-up-right"></i> </span>
                                                 <span class="theme-btn">let’s talk</span>
@@ -214,7 +214,7 @@
     enterprises, we transform ideas into successful digital products.
 </p>
                                             <a class="theme-btn-main style-2 bg-white-style wow fadeInUp"
-                                                data-wow-delay=".5s" href="about.html">
+                                                data-wow-delay=".5s" href="{{ url('/about') }}">
                                                 <span class="theme-btn-arrow-left"> <i
                                                         class="fa-solid fa-arrow-up-right"></i> </span>
                                                 <span class="theme-btn">Know more us</span>
@@ -240,7 +240,6 @@
                                 </div>
                             </div>
                         </div>
-                            @endif
                     </section>
 
 
@@ -506,7 +505,7 @@
                                                         exceptional results that exceed expectations.
                                                     </p>
                                                     <a class="theme-btn-main style-2 bg-white-style"
-                                                        href="contact.html">
+                                                        href="{{ url('/contact') }}">
                                                         <span class="theme-btn-arrow-left"> <i
                                                                 class="fa-solid fa-arrow-up-right"></i> </span>
                                                         <span class="theme-btn">Get In Touch</span>
@@ -1097,16 +1096,16 @@
                                     </h2>
                                 </div>
                             </div>
+                            @forelse($latestBlogs as $blog)
                             <div class="news-box-items oit-panel-pin">
-                                @forelse($latestBlogs as $blog)
                                 <div class="row">
                                     <div class="col-lg-6"><div class="thumb"><img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('FrontendAssets/img/home-1/news-01.jpg') }}" alt="{{ $blog->title }}"><img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('FrontendAssets/img/home-1/news-01.jpg') }}" alt="{{ $blog->title }}"></div></div>
                                     <div class="col-lg-6"><div class="content"><h3 class="title"><a href="{{ route('blog.detail', $blog->slug) }}">{{ $blog->title }}</a></h3><ul><li><div class="client-info"><div class="client-content"><p class="name">Avrio Global</p><p>Software insights</p></div></div></li><li><div class="news-line"></div></li><li><span>{{ $blog->category ?: 'Technology' }}</span><span class="color-2">{{ optional($blog->created_at)->format('M d, Y') }}</span></li></ul></div></div>
                                 </div>
-                                @empty
-                                <div class="row"><div class="col-12"><p>No blog insights published yet.</p></div></div>
-                                @endforelse
                             </div>
+                            @empty
+                            <div class="news-box-items oit-panel-pin"><div class="row"><div class="col-12"><p>No blog insights published yet.</p></div></div></div>
+                            @endforelse
                             {{-- Legacy static news cards retained for reference. --}}
                             @if(false)
                             <div class="news-box-items oit-panel-pin">
