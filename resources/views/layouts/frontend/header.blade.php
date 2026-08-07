@@ -75,9 +75,9 @@
                             </ul>
 
                             <div class="menu-right-info">
-                                <a href="#" class="main-header__search search-toggler">
+                                {{-- <a href="#" class="main-header__search search-toggler">
                                     <i class="fa-regular fa-magnifying-glass"></i>
-                                </a>
+                                </a> --}}
                                 <div class="sidebar__toggle offcanvas-btn">
                                     <span></span>
                                     <span></span>
