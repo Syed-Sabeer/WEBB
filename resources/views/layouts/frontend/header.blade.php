@@ -30,7 +30,7 @@
 
                     <!-- ===================== DESKTOP NAVBAR ===================== -->
                     <nav class="navbar p-0 navbar-expand-xl d-none d-xl-flex">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="{{ url('/') }}">
                             <img style="width: 130px; height: auto;" src="{{ asset('FrontendAssets/img/white-file/avrio-logo.png')}}" alt="logo">
                         </a>
 
@@ -56,42 +56,10 @@
 
                                 <!-- SERVICES -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="services.html">Services</a>
+                                    <a class="nav-link" href="{{ url('/service') }}">Services</a>
                                 </li>
 
-                                <!-- PAGES -->
-                                <!-- <li class="has-dropdown nav-item">
-                                        <a class="nav-link" href="javascript:void(0)">
-                                            Pages <i class="fas fa-chevron-down"></i>
-                                        </a>
 
-                                        <ul class="sub-menu list-unstyled">
-                                           
-                                            <li class="has-dropdown">
-                                                <a href="javascript:void(0)">
-                                                    Portfolio <i class="fas fa-angle-right"></i>
-                                                </a>
-                                                <ul class="sub-menu list-unstyled">
-                                                    <li><a href="project.html">Portfolio page</a></li>
-                                                    <li><a href="project-details.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-
-                                           
-                                            <li class="has-dropdown">
-                                                <a href="javascript:void(0)">
-                                                    Team <i class="fas fa-angle-right"></i>
-                                                </a>
-                                                <ul class="sub-menu list-unstyled">
-                                                    <li><a href="team.html">Team page</a></li>
-                                                    <li><a href="team-details.html">Team Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="pricing.html">Pricing Page</a></li>
-                                            <li><a href="faq.html">Faq Page</a></li>
-                                            <li><a href="404.html">404 Error</a></li>
-                                        </ul>
-                                    </li> -->
 
                                 <!-- BLOG -->
                                 <li class="nav-item">
@@ -126,8 +94,8 @@
                 <div class="offcanvas-menu position-fixed">
                     <div class="header-top d-flex align-items-center justify-content-between gap-4">
                         <div class="logo">
-                            <a href="index.html">
-                                <img style="width: 60px; height: auto;" src="{{ asset('FrontendAssets/img/logo/avrio-logo.png')}}" alt="logo">
+                            <a href="{{ url('/') }}">
+                                <img  src="{{ asset('FrontendAssets/img/white-file/darklogo.png')}}" alt="logo">
                             </a>
                         </div>
                         <button
@@ -136,7 +104,7 @@
                         </button>
                     </div>
                     <span class="action-title">Happy You’re Here</span>
-                    <a href="contact.html" class="news-btn">
+                    <a href="{{ url('/contact') }}" class="news-btn">
                         <span class="text">
                             <span class="text-default">Know more us <i class="fa-regular fa-arrow-up-right"></i></span>
                             <span class="text-hover">Know more us <i class="fa-regular fa-arrow-up-right"></i></span>
@@ -193,7 +161,7 @@ PAKISTAN
                             <div class="d-flex justify-content-between align-items-center">
 
                                 <div class="logo">
-                                    <a href="index.html">
+                                    <a href="{{ url('/') }}">
                                         <img style="width: 80px; height: auto;" src="{{ asset('FrontendAssets/img/white-file/avrio-logo.png')}}" alt="logo">
                                     </a>
                                 </div>
@@ -219,7 +187,7 @@ PAKISTAN
                     <div class="mobile-menu-main">
 
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="{{ url('/') }}">
                                 <img style="width: 60px; height: auto;" src="{{ asset('FrontendAssets/img/logo/avrio-logo.png')}}" alt="logo">
                             </a>
                         </div>
@@ -232,74 +200,14 @@ PAKISTAN
                             <div class="menu-list">
                                 <ul class="list-unstyled">
 
-                                    <li class="sub-mobile-menu">
-                                        <a href="javascript:void(0)">
-                                            Home <i class="fas fa-chevron-down float-end"></i>
-                                        </a>
-                                        <ul class="list-unstyled">
-                                            <li><a href="index.html">Creative Agency (Dark)</a></li>
-                                            <li><a href="index-white.html">Creative Agency (Light)</a></li>
-                                            <li><a href="index-2.html">Digital Agency (Dark)</a></li>
-                                            <li><a href="index-white-2.html">Digital Agency (Light)</a></li>
-                                            <li><a href="index-3.html">IT Solutions (Dark)</a></li>
-                                            <li><a href="index-white-3.html">IT Solutions (Light)</a></li>
-                                            <li><a href="index-4.html">Design Studio (Dark)</a></li>
-                                            <li><a href="index-white-4.html">Design Studio (Light)</a></li>
-                                        </ul>
-                                    </li>
+                                   
+                                    <li><a href="{{ url('/') }}">Home</a></li>
+                                    <li><a href="{{ url('/about') }}">About Us</a></li>
+                                    <li><a href="{{ url('/service') }}">Services</a></li>
+                                    <li><a href="{{ url('/blog') }}">Blogs</a></li>
 
-                                    <li><a href="about.html">About Us</a></li>
-
-                                    <li class="sub-mobile-menu">
-                                        <a href="javascript:void(0)">
-                                            Services <i class="fas fa-chevron-down float-end"></i>
-                                        </a>
-                                        <ul class="list-unstyled">
-                                            <li><a href="service.html">Service Page</a></li>
-                                            <li><a href="service-details.html">Service Details</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="sub-mobile-menu has-dropdown">
-                                        <a href="javascript:void(0)">
-                                            Pages <i class="fas fa-chevron-down float-end"></i>
-                                        </a>
-                                        <ul class="list-unstyled">
-                                            <li class="sub-child-menu has-dropdown">
-                                                <a href="javascript:void(0)">
-                                                    Portfolio <i class="fas fa-chevron-down float-end"></i>
-                                                </a>
-                                                <ul class="list-unstyled">
-                                                    <li><a href="project.html">Portfolio page</a></li>
-                                                    <li><a href="project-details.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="sub-child-menu has-dropdown">
-                                                <a href="javascript:void(0)">
-                                                    Team <i class="fas fa-chevron-down float-end"></i>
-                                                </a>
-                                                <ul class="list-unstyled">
-                                                    <li><a href="team.html">Team page</a></li>
-                                                    <li><a href="team-details.html">Team Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="pricing.html">Pricing Page</a></li>
-                                            <li><a href="faq.html">Faq Page</a></li>
-                                            <li><a href="404.html">404 Error</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="sub-mobile-menu">
-                                        <a href="javascript:void(0)">
-                                            Blog <i class="fas fa-chevron-down float-end"></i>
-                                        </a>
-                                        <ul class="list-unstyled">
-                                            <li><a href="news-grid.html">Blog Grid</a></li>
-                                            <li><a href="news.html">Blog Standard</a></li>
-                                            <li><a href="news-details.html">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                
+                                    <li><a href="{{ url('/contact') }}">Contact</a></li>
                                 </ul>
                             </div>
                         </div>

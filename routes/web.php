@@ -60,7 +60,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, 'detail'])->name('blog.detail');
 Route::get('/service', [WebsiteController::class, 'service'])->name('service');
 Route::get('/portfolio', [WebsiteController::class, 'portfolio'])->name('portfolio');
-Route::get('/service-detail', [WebsiteController::class, 'serviceDetail'])->name('service.detail');
+Route::get('/service-detail/{slug?}', [WebsiteController::class, 'serviceDetail'])->name('service.detail');
 
 
 
@@ -189,5 +189,4 @@ Route::delete('contacts/{id}', [AdminContactController::class, 'destroy'])->name
 
 
 });
-
 
