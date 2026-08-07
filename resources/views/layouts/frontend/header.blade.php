@@ -1,0 +1,365 @@
+   <div class="page-wrapper">
+        <!-- ================= PRELOADER (DISABLED) =================
+        <div id="preloader">
+            <div class="bracket tl"></div>
+            <div class="bracket tr"></div>
+            <div class="bracket bl"></div>
+            <div class="bracket br"></div>
+
+            <div class="pre-logo">
+                AVRIO GLOBAL
+                <div class="pre-logo-fill" id="logoFill">AVRIO GLOBAL </div>
+            </div>
+
+            <div class="loader-ring">
+                <svg viewBox="0 0 72 72">
+                    <circle class="ring-track" cx="36" cy="36" r="32" />
+                    <circle class="ring-arc a2" cx="36" cy="36" r="32" />
+                    <circle class="ring-arc a1" cx="36" cy="36" r="32" />
+                </svg>
+                <div class="ring-center-dot"></div>
+            </div>
+
+            <div class="pre-count">Loading <span id="pct">0</span>%</div>
+        </div>
+        -->
+
+        <div id="page">
+            <header class="header-section header-1" id="sticky-header">
+                <div class="header-main">
+
+                    <!-- ===================== DESKTOP NAVBAR ===================== -->
+                    <nav class="navbar p-0 navbar-expand-xl d-none d-xl-flex">
+                        <a class="navbar-brand" href="index.html">
+                            <img style="width: 130px; height: auto;" src="{{ asset('FrontendAssets/img/white-file/avrio-logo.png')}}" alt="logo">
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                            <ul class="navbar-nav mx-auto mb-lg-0">
+
+                                <!-- HOME -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/') }}">Home</a>
+                                </li>
+
+                                <!-- ABOUT -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/about') }}">About Us</a>
+                                </li>
+
+                                <!-- SERVICES -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="services.html">Services</a>
+                                </li>
+
+                                <!-- PAGES -->
+                                <!-- <li class="has-dropdown nav-item">
+                                        <a class="nav-link" href="javascript:void(0)">
+                                            Pages <i class="fas fa-chevron-down"></i>
+                                        </a>
+
+                                        <ul class="sub-menu list-unstyled">
+                                           
+                                            <li class="has-dropdown">
+                                                <a href="javascript:void(0)">
+                                                    Portfolio <i class="fas fa-angle-right"></i>
+                                                </a>
+                                                <ul class="sub-menu list-unstyled">
+                                                    <li><a href="project.html">Portfolio page</a></li>
+                                                    <li><a href="project-details.html">Portfolio Details</a></li>
+                                                </ul>
+                                            </li>
+
+                                           
+                                            <li class="has-dropdown">
+                                                <a href="javascript:void(0)">
+                                                    Team <i class="fas fa-angle-right"></i>
+                                                </a>
+                                                <ul class="sub-menu list-unstyled">
+                                                    <li><a href="team.html">Team page</a></li>
+                                                    <li><a href="team-details.html">Team Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="pricing.html">Pricing Page</a></li>
+                                            <li><a href="faq.html">Faq Page</a></li>
+                                            <li><a href="404.html">404 Error</a></li>
+                                        </ul>
+                                    </li> -->
+
+                                <!-- BLOG -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/blog') }}">Blog</a>
+                                </li>
+
+
+                                <!-- CONTACT -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('/contact') }}">Contact</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="menu-right-info">
+                                <a href="#" class="main-header__search search-toggler">
+                                    <i class="fa-regular fa-magnifying-glass"></i>
+                                </a>
+                                <div class="sidebar__toggle offcanvas-btn">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </nav>
+
+                </div>
+
+                <div class="offcanvas-overlay position-fixed top-0 start-0 w-100 h-100"></div>
+                <div class="offcanvas-menu position-fixed">
+                    <div class="header-top d-flex align-items-center justify-content-between gap-4">
+                        <div class="logo">
+                            <a href="index.html">
+                                <img style="width: 60px; height: auto;" src="{{ asset('FrontendAssets/img/logo/avrio-logo.png')}}" alt="logo">
+                            </a>
+                        </div>
+                        <button
+                            class="offcasvas-close black-bg border-0 text-white d-flex align-items-center justify-content-center rounded-pill">
+                            <i class="fa-regular fa-xmark"></i>
+                        </button>
+                    </div>
+                    <span class="action-title">Happy You’re Here</span>
+                    <a href="contact.html" class="news-btn">
+                        <span class="text">
+                            <span class="text-default">Know more us <i class="fa-regular fa-arrow-up-right"></i></span>
+                            <span class="text-hover">Know more us <i class="fa-regular fa-arrow-up-right"></i></span>
+                        </span>
+                    </a>
+                    <div class="offcanvas_gallery d-none d-lg-block">
+                        <img class="gallery_img" src="{{ asset('FrontendAssets/img/header/offcanvas1.jpg')}}" alt="gallery">
+                        <img class="gallery_img" src="{{ asset('FrontendAssets/img/header/offcanvas2.jpg')}}" alt="gallery">
+                        <img class="gallery_img" src="{{ asset('FrontendAssets/img/header/offcanvas3.jpg')}}" alt="gallery">
+                        <img class="gallery_img" src="{{ asset('FrontendAssets/img/header/offcanvas4.jpg')}}" alt="gallery">
+                    </div>
+                    <div class="off-contact-info">
+                        <span class="info-title">Contact Info</span>
+                        <div class="contact-details">
+                            <span class="sub-info">Phone</span>
+                            <p>
+                                <a href="tel:+17866985569">+1 (786) 698-5569</a>
+                            </p>
+                        </div>
+                        <div class="contact-details">
+                            <span class="sub-info">Email</span>
+                            <p>
+                                <a href="mailto:info@avrioglobal.io">info@avrioglobal.io</a>
+                            </p>
+                        </div>
+                        <div class="contact-details">
+                            <span class="sub-info">Location</span>
+                            <p>
+                                Plot No. A-26/1, Block 8, K.A.E.C.H.S,
+Karachi - 75460,
+PAKISTAN
+                            </p>
+                        </div>
+                    </div>
+                    <div class="social-icon-list">
+                        <span class="follow-title">
+                            Follow us:
+                        </span>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ===================== MOBILE MENU ===================== -->
+                <div class="mobile-menu-area d-block d-xl-none">
+
+                    <div class="container">
+                        <div class="mobile-topbar">
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img style="width: 80px; height: auto;" src="{{ asset('FrontendAssets/img/white-file/avrio-logo.png')}}" alt="logo">
+                                    </a>
+                                </div>
+
+                                <div class="menu-search d-flex align-items-center gap-4">
+                                    <a href="#" class="main-header__search search-toggler">
+                                        <i class="fa-regular fa-magnifying-glass"></i>
+                                    </a>
+                                    <div class="bars">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="mobile-menu-overlay"></div>
+
+                    <div class="mobile-menu-main">
+
+                        <div class="logo">
+                            <a href="index.html">
+                                <img style="width: 60px; height: auto;" src="{{ asset('FrontendAssets/img/logo/avrio-logo.png')}}" alt="logo">
+                            </a>
+                        </div>
+
+                        <div class="close-mobile-menu">
+                            <i class="fas fa-times"></i>
+                        </div>
+
+                        <div class="menu-body">
+                            <div class="menu-list">
+                                <ul class="list-unstyled">
+
+                                    <li class="sub-mobile-menu">
+                                        <a href="javascript:void(0)">
+                                            Home <i class="fas fa-chevron-down float-end"></i>
+                                        </a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="index.html">Creative Agency (Dark)</a></li>
+                                            <li><a href="index-white.html">Creative Agency (Light)</a></li>
+                                            <li><a href="index-2.html">Digital Agency (Dark)</a></li>
+                                            <li><a href="index-white-2.html">Digital Agency (Light)</a></li>
+                                            <li><a href="index-3.html">IT Solutions (Dark)</a></li>
+                                            <li><a href="index-white-3.html">IT Solutions (Light)</a></li>
+                                            <li><a href="index-4.html">Design Studio (Dark)</a></li>
+                                            <li><a href="index-white-4.html">Design Studio (Light)</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="about.html">About Us</a></li>
+
+                                    <li class="sub-mobile-menu">
+                                        <a href="javascript:void(0)">
+                                            Services <i class="fas fa-chevron-down float-end"></i>
+                                        </a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="service.html">Service Page</a></li>
+                                            <li><a href="service-details.html">Service Details</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="sub-mobile-menu has-dropdown">
+                                        <a href="javascript:void(0)">
+                                            Pages <i class="fas fa-chevron-down float-end"></i>
+                                        </a>
+                                        <ul class="list-unstyled">
+                                            <li class="sub-child-menu has-dropdown">
+                                                <a href="javascript:void(0)">
+                                                    Portfolio <i class="fas fa-chevron-down float-end"></i>
+                                                </a>
+                                                <ul class="list-unstyled">
+                                                    <li><a href="project.html">Portfolio page</a></li>
+                                                    <li><a href="project-details.html">Portfolio Details</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li class="sub-child-menu has-dropdown">
+                                                <a href="javascript:void(0)">
+                                                    Team <i class="fas fa-chevron-down float-end"></i>
+                                                </a>
+                                                <ul class="list-unstyled">
+                                                    <li><a href="team.html">Team page</a></li>
+                                                    <li><a href="team-details.html">Team Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="pricing.html">Pricing Page</a></li>
+                                            <li><a href="faq.html">Faq Page</a></li>
+                                            <li><a href="404.html">404 Error</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="sub-mobile-menu">
+                                        <a href="javascript:void(0)">
+                                            Blog <i class="fas fa-chevron-down float-end"></i>
+                                        </a>
+                                        <ul class="list-unstyled">
+                                            <li><a href="news-grid.html">Blog Grid</a></li>
+                                            <li><a href="news.html">Blog Standard</a></li>
+                                            <li><a href="news-details.html">Blog Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="off-contact-area">
+                            <div class="off-contact-info">
+                                <span class="info-title">Contact Info</span>
+                                <div class="contact-details">
+                                    <span class="sub-info">Phone</span>
+                                    <p>
+                                        <a href="tel:+17866985569">+1 (786) 698-5569</a>
+                                    </p>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="sub-info">Email</span>
+                                    <p>
+                                        <a href="mailto:info@avrioglobal.io">info@avrioglobal.io</a>
+                                    </p>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="sub-info">Location</span>
+                                    <p>
+                                        Plot No. A-26/1, Block 8, K.A.E.C.H.S,
+Karachi - 75460,
+PAKISTAN
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="social-icon-list">
+                                <span class="follow-title">
+                                    Follow us:
+                                </span>
+                                <div class="social-icon d-flex align-items-center">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ===================== MOBILE MENU END ===================== -->
+
+            </header>
+
+            <!-- Search Start -->
+            <div class="search-popup">
+                <div class="search-popup__overlay search-toggler"></div>
+                <div class="search-popup__content">
+                    <form role="search" method="get" class="search-popup__form" action="#">
+                        <input type="text" id="search" name="search" placeholder="Search Here...">
+                        <button type="submit" aria-label="search submit" class="search-btn">
+                            <span><i class="fa-regular fa-magnifying-glass"></i></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="smooth-wrapper">
+                <div id="smooth-content">
