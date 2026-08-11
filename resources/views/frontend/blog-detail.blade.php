@@ -82,6 +82,12 @@
                                                     </li>
                                                 </ul>
                                                 <h2>{{ $blog->title }}</h2>
+                                                @if(!empty(trim((string) ($blog->summary_note ?? ''))))
+                                                    <div class="alert alert-light border mb-4" style="background:#f8f9fa; border-color:#e5e7eb; color:#374151;">
+                                                        <strong>Summary:</strong><br>
+                                                        {{ $blog->summary_note }}
+                                                    </div>
+                                                @endif
                                                 <div class="blog-detail-content">{!! $blog->content !!}</div>
                                                 {{-- Legacy placeholder detail content disabled.
                                                 <p class="mb-3">

@@ -53,6 +53,24 @@ class WebsiteController extends Controller
 
 	private function services(): array
 	{
+		$serviceImages = [
+			'mobile-app-development' => 'FrontendAssets/img/services/mobile-app-development.png',
+			'website-app-development' => 'FrontendAssets/img/services/website-app-development.png',
+			'ai-ml-development' => 'FrontendAssets/img/services/ai-ml-development.png',
+			'seo-content-writing' => 'FrontendAssets/img/services/seo-content-writing.png',
+			'digital-marketing' => 'FrontendAssets/img/services/digital-marketing.png',
+			'website-designing' => 'FrontendAssets/img/services/website-designing.png',
+			'it-consulting' => 'FrontendAssets/img/services/it-consulting.png',
+			'it-outsourcing' => 'FrontendAssets/img/services/it-outsourcing.png',
+			'blockchain-development' => 'FrontendAssets/img/services/blockchain-development.png',
+			'digital-commerce' => 'FrontendAssets/img/services/digital-commerce.png',
+			'digital-transformation' => 'FrontendAssets/img/services/digital-transformation.png',
+			'emerging-technologies' => 'FrontendAssets/img/services/emerging-technologies.png',
+			'iot-development' => 'FrontendAssets/img/services/iot-development.png',
+			'software-testing' => 'FrontendAssets/img/services/software-testing.png',
+			'web-design' => 'FrontendAssets/img/services/web-design.png',
+		];
+
 		$items = [
 			['mobile-app-development','MOBILE APP DEVELOPMENT','Your Next Great Idea Deserves the Attention of Our Mobile App Development Team.','We build intuitive, high-performance iOS and Android applications that turn ideas into engaging products.'],
 			['website-app-development','WEBSITE APP DEVELOPMENT','Professional Web Application Development to uplift your ROI','Scalable, secure web applications designed around your workflows, customers, and growth goals.'],
@@ -70,7 +88,11 @@ class WebsiteController extends Controller
 			['software-testing','SOFTWARE TESTING','Ensuring flawless performance with comprehensive testing solutions.','Functional, automation, performance, and security testing that protects quality throughout the product lifecycle.'],
 			['web-design','WEB DESIGN','Crafting visually stunning websites that elevate your online presence.','Strategic visual systems and conversion-focused web experiences that make your brand memorable.'],
 		];
-		return collect($items)->values()->map(function ($item, $index) { return ['slug'=>$item[0], 'title'=>$item[1], 'short'=>$item[2], 'description'=>$item[3], 'image'=>'FrontendAssets/img/home-2/service-0'.(($index % 3)+1).'.jpg', 'number'=>str_pad($index+1,2,'0',STR_PAD_LEFT)]; })->all();
+		$icons = ['mobile-screen-button','laptop-code','brain','pen-nib','chart-line','palette','compass-drafting','people-group','link','cart-shopping','arrows-rotate','microchip','wifi','shield-halved','wand-magic-sparkles'];
+		return collect($items)->values()->map(function ($item, $index) use ($icons, $serviceImages) {
+			$slug = $item[0];
+			return ['slug'=>$slug, 'title'=>$item[1], 'short'=>$item[2], 'description'=>$item[3], 'image'=>$serviceImages[$slug] ?? 'FrontendAssets/img/services/mobileapp.png', 'number'=>str_pad($index+1,2,'0',STR_PAD_LEFT), 'icon'=>$icons[$index]];
+		})->all();
 	}
 
 	public function blogDetail()

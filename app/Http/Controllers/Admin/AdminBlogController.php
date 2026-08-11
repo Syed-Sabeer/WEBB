@@ -54,6 +54,7 @@ class AdminBlogController extends Controller
                 'title' => 'required|string|max:255',
                 'slug' => 'nullable|string|max:255|unique:blogs,slug',
                 'content' => 'required',
+                'summary_note' => 'nullable|string|max:1000',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
                 'tags' => 'nullable|string|max:255',
                 'category' => 'nullable|string|max:255',
@@ -61,7 +62,7 @@ class AdminBlogController extends Controller
                 'visibility' => 'nullable|integer',
             ]);
 
-            $validatedData = $request->only(['title', 'slug', 'content', 'tags', 'min_read', 'visibility', 'category']);
+            $validatedData = $request->only(['title', 'slug', 'content', 'summary_note', 'tags', 'min_read', 'visibility', 'category']);
 
             // Handle image upload
             if ($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -78,6 +79,7 @@ class AdminBlogController extends Controller
                 'title' => $validatedData['title'],
                 'slug' => $validatedData['slug'] ?? null,
                 'content' => $validatedData['content'],
+                'summary_note' => $validatedData['summary_note'] ?? null,
                 'image' => $validatedData['image'] ?? null,
                 'tags' => $validatedData['tags'] ?? null,
                 'category' => $validatedData['category'] ?? null,
@@ -108,6 +110,7 @@ class AdminBlogController extends Controller
                 'title' => 'required|string|max:255',
                 'slug' => 'nullable|string|max:255|unique:blogs,slug,' . $id,
                 'content' => 'required',
+                'summary_note' => 'nullable|string|max:1000',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
                 'tags' => 'nullable|string|max:255',
                 'category' => 'nullable|string|max:255',
@@ -120,6 +123,7 @@ class AdminBlogController extends Controller
                 'title' => $request->title,
                 'slug' => $request->slug,
                 'content' => $request->content,
+                'summary_note' => $request->summary_note,
                 'tags' => $request->tags,
                 'category' => $request->category,
                 'min_read' => $request->min_read,

@@ -2,24 +2,26 @@
 
 
 @section('css')
-<style>
-  .service-catalog-grid { --accent: #cf1f42; }
-  .service-catalog-grid .avrio-service-card { height: 100%; display: flex; flex-direction: column; overflow: hidden; background: #fff; border: 1px solid #ececec; border-radius: 20px; box-shadow: 0 10px 30px rgba(14, 14, 14, .06); transition: transform .3s ease, box-shadow .3s ease; }
-  .service-catalog-grid .avrio-service-card:hover { transform: translateY(-7px); box-shadow: 0 20px 38px rgba(14, 14, 14, .13); }
-  .avrio-service-card .service-thumb { height: 230px; overflow: hidden; }
-  .avrio-service-card .service-thumb img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s ease; }
-  .avrio-service-card:hover .service-thumb img { transform: scale(1.06); }
-  .avrio-service-card .service-content { padding: 26px 28px 28px; display: flex; flex: 1; flex-direction: column; }
-  .avrio-service-card .service-number { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; }
-  .avrio-service-card .title { font-size: 24px; line-height: 1.18; margin: 0 0 14px; }
-  .avrio-service-card .title a { color: #151515; }
-  .avrio-service-card .title a:hover { color: var(--accent); }
-  .avrio-service-card .service-summary { color: #666; font-size: 15px; line-height: 1.65; margin: 0 0 22px; }
-  .avrio-service-card .service-link { margin-top: auto; display: inline-flex; align-items: center; gap: 8px; color: #151515; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: .05em; }
-  .avrio-service-card .service-link i { color: var(--accent); font-size: 16px; transition: transform .25s ease; }
-  .avrio-service-card .service-link:hover i { transform: translate(3px, -3px); }
-  @media (max-width: 575px) { .avrio-service-card .service-thumb { height: 200px; } .avrio-service-card .service-content { padding: 22px; } }
-</style>
+{{-- <style>
+  .service-catalog-grid { --accent: #cf1f42; background:transparent; padding:0; border-radius:0; }
+  .service-catalog-heading { max-width: 720px; margin: 0 auto 48px; text-align: center; }
+  .service-catalog-heading span { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .service-catalog-heading h2 { color: #161616; font-size: clamp(34px, 4vw, 56px); line-height: 1.05; margin: 12px 0 0; }
+  .service-catalog-grid .avrio-service-card { min-height:250px; position:relative; overflow:hidden; padding:31px 34px; border:0; border-radius:18px; background:#202020!important; box-shadow:none; transition:transform .35s ease,background .35s ease; }
+  .service-catalog-grid .avrio-service-card:after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 62%,rgba(255,255,255,.05) 62%,rgba(255,255,255,.05) 63%,transparent 63%);pointer-events:none}
+  .service-catalog-grid .avrio-service-card:hover { transform:translateY(-7px); background:#cf1f42!important; }
+  .avrio-service-card .service-icon{width:58px;height:58px;position:absolute;right:28px;top:27px;border-radius:50%;border:1px solid rgba(255,255,255,.25);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;transition:background .25s ease}
+  .avrio-service-card .service-number { position:relative; margin:0 0 42px; color:#ff718a!important; font-size:12px; letter-spacing:.14em; font-weight:800; }
+  .avrio-service-card .service-content { position:relative; z-index:1; display:flex; flex-direction:column; height:100%; padding-right:58px; }
+  .avrio-service-card .title { font-size:28px; line-height:1.08; margin:0 0 14px; max-width:420px; }
+  .avrio-service-card .title a { color:#fff!important; transition:opacity .25s ease; }
+  .avrio-service-card .title a:hover{opacity:.78}
+  .avrio-service-card .service-summary { color:rgba(255,255,255,.74)!important; font-size:14px; line-height:1.7; margin:0 0 20px; max-width:440px; }
+  .avrio-service-card .service-link { margin-top:auto; width:auto; height:auto; border-radius:0; display:inline-flex; align-items:center; gap:10px; border:0; color:#fff!important; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; transition:all .25s ease; }
+  .avrio-service-card .service-link span { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .avrio-service-card:hover .service-number{color:#fff!important}.avrio-service-card:hover .service-icon{background:rgba(255,255,255,.18)}.avrio-service-card:hover .service-link { color:#fff!important; transform:translateX(5px); }
+  @media (max-width:575px) { .service-catalog-grid .avrio-service-card { min-height:245px;padding:25px; }.avrio-service-card .service-number { margin-bottom:34px; } }
+</style> --}}
 
 @endsection
 
@@ -118,64 +120,66 @@
                     <!-- Service Section Start -->
                     <section class="service-section-2 pt-5 mt-3 section-padding fix">
                         <div class="container">
+                            {{-- Replaced card catalog: use the original full-width service panels below. --}}
+                            {{-- <div class="service-catalog-heading"><span>What we build</span><h2>Services that move your business forward.</h2></div>
                             <div class="row g-4 service-catalog-grid mb-5">
                             @foreach($services as $service)
-                              <div class="col-xl-4 col-md-6"><article class="avrio-service-card"><a class="service-thumb" href="{{ route('service.detail', $service['slug']) }}"><img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}"></a><div class="service-content"><p class="service-number">{{ $service['number'] }} / Service</p><h3 class="title"><a href="{{ route('service.detail', $service['slug']) }}">{{ $service['title'] }}</a></h3><p class="service-summary">{{ $service['short'] }}</p><a class="service-link" href="{{ route('service.detail', $service['slug']) }}">Explore service <i class="fa-solid fa-arrow-up-right"></i></a></div></article></div>
+                              <div class="col-lg-6"><article class="avrio-service-card"><div class="service-icon"><i class="fa-solid fa-{{ $service['icon'] }}"></i></div><p class="service-number">{{ $service['number'] }} / Service</p><div class="service-content"><h3 class="title"><a href="{{ route('service.detail', $service['slug']) }}">{{ $service['title'] }}</a></h3><p class="service-summary">{{ $service['short'] }}</p><a class="service-link" href="{{ route('service.detail', $service['slug']) }}"><span>Explore {{ $service['title'] }}</span><i class="fa-solid fa-arrow-up-right"></i></a></div></article></div>
                             @endforeach
-                            </div>
-                            @if(false)
+                            </div> --}}
                             <div class="legacy-service-catalog">
                             <div class="des-portfolio-wrap">
+                                @foreach($services as $service)
                                 <div class="service-box-items-2 pt-0 des-portfolio-panel">
                                     <div class="row g-4 align-items-center">
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
-                                                <p>001.  /  service</p>
-                                                <h3 class="title"><a href="service-details.html">Strategic business
-                                                planning</a></h3>
+                                                <p>{{ $service['number'] }}. / service</p>
+                                                <h3 class="title"><a href="{{ route('service.detail', $service['slug']) }}">{{ $service['title'] }}</a></h3>
                                                 <div class="service-list">
                                                     <ul>
                                                         <li>
-                                                            + product design
+                                                            + strategy & discovery
                                                         </li>
                                                         <li>
-                                                            + Motion Graphics
+                                                            + tailored solution design
                                                         </li>
                                                     </ul>
                                                     <ul>
                                                         <li>
-                                                            + brand design
+                                                            + expert implementation
                                                         </li>
                                                         <li>
-                                                            + Web Development
+                                                            + continuous support
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <h4 class="title-2">
-                                                    Provide data-driven stratege help companies identifies opportunities, reduce risk and achieve long term of our growth. Provide driven on strategie.
+                                                    {{ $service['description'] }}
                                                 </h4>
                                                 <ul class="list-items">
                                                     <li>
-                                                        <a href="service.html">Plan</a>
+                                                        <a href="{{ route('service.detail', $service['slug']) }}">Discover</a>
                                                     </li>
                                                     <li>
-                                                        <a href="service.html">Execute</a>
+                                                        <a href="{{ route('service.detail', $service['slug']) }}">Build</a>
                                                     </li>
                                                     <li>
-                                                        <a href="service.html">Succeed</a>
+                                                        <a href="{{ route('service.detail', $service['slug']) }}">Grow</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-01.jpg')}}" alt="img">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-01.jpg')}}" alt="img">
+                                                <img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}">
+                                                <img src="{{ asset($service['image']) }}" alt="{{ $service['title'] }}">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="service-box-items-2 des-portfolio-panel">
+                                @endforeach
+                                {{-- <div class="service-box-items-2 des-portfolio-panel d-none">
                                     <div class="row g-4 align-items-center">
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
@@ -223,7 +227,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="service-box-items-2 des-portfolio-panel">
+                                <div class="service-box-items-2 des-portfolio-panel d-none">
                                     <div class="row g-4 align-items-center">
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
@@ -270,11 +274,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                             </div>
-                            @endif
                         </div>
                     </section>
 

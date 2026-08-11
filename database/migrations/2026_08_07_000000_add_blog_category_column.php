@@ -13,6 +13,12 @@ return new class extends Migration
                 $table->string('category')->nullable()->after('content')->index();
             });
         }
+
+        if (Schema::hasTable('blogs') && !Schema::hasColumn('blogs', 'summary_note')) {
+            Schema::table('blogs', function (Blueprint $table) {
+                $table->text('summary_note')->nullable()->after('content');
+            });
+        }
     }
 
     public function down(): void
@@ -20,6 +26,12 @@ return new class extends Migration
         if (Schema::hasTable('blogs') && Schema::hasColumn('blogs', 'category')) {
             Schema::table('blogs', function (Blueprint $table) {
                 $table->dropColumn('category');
+            });
+        }
+
+        if (Schema::hasTable('blogs') && Schema::hasColumn('blogs', 'summary_note')) {
+            Schema::table('blogs', function (Blueprint $table) {
+                $table->dropColumn('summary_note');
             });
         }
     }

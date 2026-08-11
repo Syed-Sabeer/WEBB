@@ -9,16 +9,17 @@
 @section('content')
 
 
-   <!-- Breadcrumb Section Start -->
+                    <!-- Breadcrumb Section Start -->
                     <div class="breadcrumb-wrapper light-theme-breadcrumb bg-cover" style="background-image: url('{{ asset('FrontendAssets/img/inner-page/bread-line.png') }}');">
                         <div class="light-bg">
                             <img src="{{ asset('FrontendAssets/img/inner-page/light.png') }}" alt="img">
                         </div>
+
                         <div class="container">
                             <div class="page-heading mb-0">
                                 <div class="breadcrumb-sub-title">
                                     <h1 class="about-page-heading-title"><span>Let’s Build Something Better  </span>
-                                        Together 
+                                    Together 
                                     </h1>
                                 </div>
                                 <div class="breadcrumb-items">
@@ -27,8 +28,8 @@
                                            <span class="about-page-heading-meta">Software solutions for  businesses</span>
                                         </li>
                                         <li>
-    (&copy;2020 — {{ date('Y') }})
-</li>
+                                        (&copy;2020 — {{ date('Y') }})
+                                        </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
                                        Contact Avrio
@@ -37,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                 
                     <!-- Contact Section Start -->
                     <section class="contact-section section-padding fix">
                         <div class="container">

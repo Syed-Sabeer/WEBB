@@ -133,9 +133,9 @@
                         <div class="contact-details">
                             <span class="sub-info">Location</span>
                             <p>
-                                Plot No. A-26/1, Block 8, K.A.E.C.H.S,
-Karachi - 75460,
-PAKISTAN
+        349 Beechlawn Drive Waterloo
+ON N2L 5L8,
+CANADA
                             </p>
                         </div>
                     </div>

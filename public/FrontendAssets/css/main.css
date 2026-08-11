@@ -3706,8 +3706,36 @@ span {
   position: relative;
   margin-top: 38px;
 }
+.footer-widget-wrapper-4 .footer-content .footer-newsletter-intro {
+  margin-top: 34px;
+  max-width: 440px;
+}
+.footer-widget-wrapper-4 .footer-content .footer-newsletter-intro > span {
+  color: var(--theme);
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.footer-widget-wrapper-4 .footer-content .footer-newsletter-intro h3 {
+  color: var(--header);
+  font-size: 27px;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+.footer-widget-wrapper-4 .footer-content .footer-newsletter-intro p {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+.footer-widget-wrapper-4 .footer-content .footer-newsletter-intro + form {
+  margin-top: 10px;
+}
 .footer-widget-wrapper-4 .footer-content form input {
-  width: 100%;
+  width: 58%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: transparent;
   padding: 22px 30px;
@@ -3732,7 +3760,7 @@ span {
   transition: all 0.4s ease-in-out;
   position: absolute;
   top: 6px;
-  right: 6px;
+  left: 360px;
   bottom: 6px;
 }
 .footer-widget-wrapper-4 .footer-content form .email-btn:hover {

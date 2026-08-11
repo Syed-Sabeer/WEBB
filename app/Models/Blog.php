@@ -13,6 +13,7 @@ class Blog extends Model
         'title',
         'slug',
         'content',
+        'summary_note',
         'category',
         'image',
         'tags',

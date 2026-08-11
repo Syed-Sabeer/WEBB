@@ -16,6 +16,7 @@ return new class extends Migration
                 $table->longText('content');
                 $table->string('category')->nullable()->index();
                 $table->string('image')->nullable();
+                $table->text('summary_note')->nullable();
                 $table->string('tags')->nullable();
                 $table->string('min_read')->nullable();
                 $table->boolean('visibility')->default(true)->index();

@@ -36,24 +36,29 @@
                         <div class="contact-details-items">
                             <div class="content">
                                 <span>Canada Office</span>
-                                <p>
+                                <p style="color:#2a2a2a !important; font-size:15px;">
                                     349 Beechlawn Drive Waterloo<br class="d-block"> ON N2L 5L8, <br class="d-block">CANADA
                                 </p>
                             </div>
                             <div class="content">
                                 <span>Hong Kong Office</span>
-                                <p>Unit 1406B, Belgian Bank Building, <br class="d-block"> Nathan Road, Mong Kok,
+                                <p style="color:#2a2a2a !important; font-size:15px;">Unit 1406B, Belgian Bank Building, <br class="d-block"> Nathan Road, Mong Kok,
                                     Kowloon,<br class="d-block"> HONG KONG</p>
                             </div>
 
                               <div class="content">
                                 <span>Pakistan Office</span>
-                                <p>Plot No. A-26/1, Block 8, K.A.E.C.H.S, <br class="d-block">Karachi - 75460,<br class="d-block"> PAKISTAN</p>
+                                <p style="color:#2a2a2a !important; font-size:15px;">Plot No. A-26/1, Block 8, K.A.E.C.H.S, <br class="d-block">Karachi - 75460,<br class="d-block"> PAKISTAN</p>
                             </div>
 
                         </div>
+                        <div class="footer-newsletter-intro">
+                            <span>Avrio newsletter</span>
+                            {{-- <h3>Ideas for what you’ll build next.</h3> --}}
+                            <p>Monthly software, product, and growth insights — straight to your inbox.</p>
+                        </div>
                         <form action="#">
-                            <input type="text" placeholder="Type your Email address">
+                            <input type="email" placeholder="Enter your email address" aria-label="Email address">
                             <button class="email-btn" type="submit">
                                 <i class="fa-solid fa-envelope"></i>
                             </button>
@@ -68,11 +73,11 @@
                         <div class="footer-contact">
                             <ul>
                                 <li>
-                                    <a href="tel:+17866985569"><i class="fa-solid fa-phone"></i>
+                                    <a href="tel:+17866985569" style="color:#2a2a2a !important;"><i class="fa-solid fa-phone"></i>
                                         +1 786 698 5569</a>
                                 </li>
                                 <li>
-                                    <a href="mailto:info@avrioglobal.io"><i class="fa-solid fa-envelope"></i>info@avrioglobal.io</a>
+                                    <a href="mailto:info@avrioglobal.io" style="color:#2a2a2a !important;"><i class="fa-solid fa-envelope"></i>info@avrioglobal.io</a>
                                 </li>
                             </ul>
                             <div class="social-icon d-flex align-items-center">
