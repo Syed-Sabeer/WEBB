@@ -47,7 +47,7 @@
                         <div class="rain front-row"></div>
                         <div class="rain back-row"></div>
                         <div class="container">
-                            <div class="row g-4 align-items-center">
+                            <div class="row g-4 align-items-center" style="margin-top: 0%;">
                                 <div class="col-lg-8">
                                     <div class="hero-content">
                                         <span class="hero-sub">Avrio Global Inc</span>
@@ -443,32 +443,32 @@
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
                                                 <p>004. / service</p>
-                                                <h3 class="title"><a href="{{ route('service.detail', 'digital-marketing') }}">Digital Marketing</a></h3>
+                                                <h3 class="title"><a href="{{ route('service.detail', 'ui-ux-design') }}">UI/UX DESIGN</a></h3>
                                                 <div class="service-list">
                                                     <ul>
-                                                        <li>+ SEO strategy</li>
-                                                        <li>+ social media marketing</li>
+                                                        <li>+ user research</li>
+                                                        <li>+ wireframing</li>
                                                     </ul>
                                                     <ul>
-                                                        <li>+ PPC campaigns</li>
-                                                        <li>+ email marketing</li>
+                                                        <li>+ interface design</li>
+                                                        <li>+ usability testing</li>
                                                     </ul>
                                                 </div>
                                                 <h4 class="title-2">
-                                                    Reach the right audience and grow your brand with measurable digital
-                                                    marketing campaigns built around your business objectives.
+                                                    We create interfaces that are intuitive, visually appealing, and aligned
+                                                    with your brand identity.
                                                 </h4>
                                                 <ul class="list-items">
-                                                    <li><a href="{{ route('service.detail', 'digital-marketing') }}">Discover</a></li>
-                                                    <li><a href="{{ route('service.detail', 'digital-marketing') }}">Engage</a></li>
-                                                    <li><a href="{{ route('service.detail', 'digital-marketing') }}">Grow</a></li>
+                                                    <li><a href="{{ route('service.detail', 'ui-ux-design') }}">Research</a></li>
+                                                    <li><a href="{{ route('service.detail', 'ui-ux-design') }}">Design</a></li>
+                                                    <li><a href="{{ route('service.detail', 'ui-ux-design') }}">Test</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/services/digital-marketing.png')}}" alt="Digital marketing">
-                                                <img src="{{ asset('FrontendAssets/img/services/digital-marketing.png')}}" alt="Digital marketing">
+                                                <img src="{{ asset('FrontendAssets/img/services/ui-ux-design.png')}}" alt="UI/UX design">
+                                                <img src="{{ asset('FrontendAssets/img/services/ui-ux-design.png')}}" alt="UI/UX design">
                                             </div>
                                         </div>
                                     </div>
@@ -478,32 +478,32 @@
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
                                                 <p>005. / service</p>
-                                                <h3 class="title"><a href="{{ route('service.detail', 'seo-content-writing') }}">SEO &amp; Content Writing</a></h3>
+                                                <h3 class="title"><a href="{{ route('service.detail', 'staff-augmentation') }}">STAFF AUGMENTATION</a></h3>
                                                 <div class="service-list">
                                                     <ul>
-                                                        <li>+ keyword research</li>
-                                                        <li>+ on-page SEO</li>
+                                                        <li>+ dedicated engineers</li>
+                                                        <li>+ flexible engagement</li>
                                                     </ul>
                                                     <ul>
-                                                        <li>+ website content</li>
-                                                        <li>+ content strategy</li>
+                                                        <li>+ rapid team scaling</li>
+                                                        <li>+ seamless integration</li>
                                                     </ul>
                                                 </div>
                                                 <h4 class="title-2">
-                                                    Improve search visibility and turn visitors into customers with useful,
-                                                    optimized content that speaks directly to your audience.
+                                                    Extend your team with dependable engineers and specialists who integrate
+                                                    with your process and culture.
                                                 </h4>
                                                 <ul class="list-items">
-                                                    <li><a href="{{ route('service.detail', 'seo-content-writing') }}">Research</a></li>
-                                                    <li><a href="{{ route('service.detail', 'seo-content-writing') }}">Create</a></li>
-                                                    <li><a href="{{ route('service.detail', 'seo-content-writing') }}">Rank</a></li>
+                                                    <li><a href="{{ route('service.detail', 'staff-augmentation') }}">Identify</a></li>
+                                                    <li><a href="{{ route('service.detail', 'staff-augmentation') }}">Integrate</a></li>
+                                                    <li><a href="{{ route('service.detail', 'staff-augmentation') }}">Scale</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/services/seo-content-writing.png')}}" alt="SEO and content writing">
-                                                <img src="{{ asset('FrontendAssets/img/services/seo-content-writing.png')}}" alt="SEO and content writing">
+                                                <img src="{{ asset('FrontendAssets/img/services/staff-augmentation.png')}}" alt="Staff augmentation">
+                                                <img src="{{ asset('FrontendAssets/img/services/staff-augmentation.png')}}" alt="Staff augmentation">
                                             </div>
                                         </div>
                                     </div>

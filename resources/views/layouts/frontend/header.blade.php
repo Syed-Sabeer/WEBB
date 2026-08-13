@@ -31,7 +31,7 @@
                     <!-- ===================== DESKTOP NAVBAR ===================== -->
                     <nav class="navbar p-0 navbar-expand-xl d-none d-xl-flex">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img style="width: 130px; height: auto;" src="{{ asset('FrontendAssets/img/white-file/avrio-logo.png')}}" alt="logo">
+                            <img style="width: 200px; height: auto;" src="{{ asset('FrontendAssets/img/white-file/avrio-logo.png')}}" alt="logo">
                         </a>
 
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

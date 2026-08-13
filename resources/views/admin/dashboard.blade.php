@@ -4,7 +4,7 @@
 
 @section('css')
 <style>
-  .country-row{padding:12px 0;border-bottom:1px solid #eee}.country-row:last-child{border-bottom:0}.country-meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}.country-meta strong{color:#222}.country-meta span{color:#777;font-size:12px;white-space:nowrap}.country-card .progress{height:7px;background:#f0f0f0}.country-card .progress-bar{min-width:2px;background:#cf1f42}.country-card.visits .progress-bar{background:#198754}
+  .country-row{padding:12px 0;border-bottom:1px solid #eee}.country-row:last-child{border-bottom:0}.country-meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}.country-meta strong{color:#222}.country-meta span{color:#777;font-size:12px;white-space:nowrap}.country-card .progress{height:7px;background:#f0f0f0}.country-card .progress-bar{min-width:2px;background:#cf1f42}.country-card.visits .progress-bar{background:#198754}.stats-filter{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-bottom:20px}.stats-filter label{margin:0;font-weight:600;color:#333}.stats-filter select{width:auto;min-width:150px}
 </style>
 @endsection
 
@@ -93,11 +93,20 @@
      
          
             </div>
+            <form class="stats-filter" method="GET" action="{{ route('admin.dashboard') }}">
+              <label for="stats-period">Filter statistics:</label>
+              <select class="form-select" id="stats-period" name="period" onchange="this.form.submit()">
+                <option value="all" @selected($period === 'all')>All Time</option>
+                <option value="today" @selected($period === 'today')>Today</option>
+                <option value="week" @selected($period === 'week')>Last 7 Days</option>
+              </select>
+              <noscript><button class="btn btn-primary" type="submit">Apply</button></noscript>
+            </form>
             <div class="row">
-              @foreach ([['title' => 'Top Countries by Visits', 'rows' => $visitorCountries, 'class' => 'visits'], ['title' => 'Top Countries by Contact Submissions', 'rows' => $contactCountries, 'class' => 'contacts']] as $countryGroup)
+              @foreach ([['title' => 'Top Countries by Visits', 'rows' => $visitorCountries, 'class' => 'visits', 'total' => $filteredVisitorTotal], ['title' => 'Top Countries by Contact Submissions', 'rows' => $contactCountries, 'class' => 'contacts', 'total' => $filteredContactTotal]] as $countryGroup)
                 <div class="col-xl-6">
                   <div class="card country-card {{ $countryGroup['class'] }}">
-                    <div class="card-header card-no-border"><h5>{{ $countryGroup['title'] }}</h5><p class="mb-0 text-muted">Top 10 countries with share of total</p></div>
+                    <div class="card-header card-no-border"><h5>{{ $countryGroup['title'] }}</h5><p class="mb-0 text-muted">{{ $periodLabel }} &middot; {{ number_format($countryGroup['total']) }} total records</p></div>
                     <div class="card-body pt-0">
                       @forelse ($countryGroup['rows'] as $country)
                         <div class="country-row">

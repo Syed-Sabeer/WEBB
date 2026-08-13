@@ -8,11 +8,12 @@ use App\Models\Visitor;
 use App\Support\IpCountryResolver;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class AdminDashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $location = IpCountryResolver::resolve(request());
 
@@ -28,13 +29,36 @@ class AdminDashboardController extends Controller
         $totalVisitors = Visitor::count();
         $todayVisitors = Visitor::whereDate('visit_date', today())->count();
         $totalContacts = ContactSubmission::count();
-        $visitorCountries = $this->topCountries(Visitor::query(), $totalVisitors);
-        $contactCountries = $this->topCountries(ContactSubmission::query(), $totalContacts);
+
+        $period = in_array($request->query('period'), ['today', 'week', 'all'], true)
+            ? $request->query('period')
+            : 'all';
+        $periodLabel = ['today' => 'Today', 'week' => 'Last 7 Days', 'all' => 'All Time'][$period];
+
+        $visitorQuery = Visitor::query();
+        $contactQuery = ContactSubmission::query();
+
+        if ($period === 'today') {
+            $visitorQuery->whereDate('visit_date', today());
+            $contactQuery->whereDate('created_at', today());
+        } elseif ($period === 'week') {
+            $visitorQuery->whereDate('visit_date', '>=', today()->subDays(6));
+            $contactQuery->where('created_at', '>=', now()->subDays(7));
+        }
+
+        $filteredVisitorTotal = (clone $visitorQuery)->count();
+        $filteredContactTotal = (clone $contactQuery)->count();
+        $visitorCountries = $this->topCountries($visitorQuery, $filteredVisitorTotal);
+        $contactCountries = $this->topCountries($contactQuery, $filteredContactTotal);
 
         return view('admin.dashboard', compact(
             'totalVisitors',
             'todayVisitors',
             'totalContacts',
+            'period',
+            'periodLabel',
+            'filteredVisitorTotal',
+            'filteredContactTotal',
             'visitorCountries',
             'contactCountries'
         ));
