@@ -179,102 +179,7 @@
                                     </div>
                                 </div>
                                 @endforeach
-                                {{-- <div class="service-box-items-2 des-portfolio-panel d-none">
-                                    <div class="row g-4 align-items-center">
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="service-content">
-                                                <p>002.  /  service</p>
-                                                <h3 class="title"><a href="service-details.html">Digital Marketing & Brand Strategy</a></h3>
-                                                <div class="service-list">
-                                                    <ul>
-                                                        <li>
-                                                            + product design
-                                                        </li>
-                                                        <li>
-                                                            + Motion Graphics
-                                                        </li>
-                                                    </ul>
-                                                    <ul>
-                                                        <li>
-                                                            + brand design
-                                                        </li>
-                                                        <li>
-                                                            + Web Development
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h4 class="title-2">
-                                                    Provide data-driven stratege help companies identifies opportunities, reduce risk and achieve long term of our growth. Provide driven on strategie.
-                                                </h4>
-                                                <ul class="list-items">
-                                                    <li>
-                                                        <a href="service.html">Plan</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="service.html">Execute</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="service.html">Succeed</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-02.jpg')}}" alt="img">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-02.jpg')}}" alt="img">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="service-box-items-2 des-portfolio-panel d-none">
-                                    <div class="row g-4 align-items-center">
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="service-content">
-                                                <p>003.  /  service</p>
-                                                <h3 class="title"><a href="service-details.html">Web Development & UI/UX Design</a></h3>
-                                                <div class="service-list">
-                                                    <ul>
-                                                        <li>
-                                                            + product design
-                                                        </li>
-                                                        <li>
-                                                            + Motion Graphics
-                                                        </li>
-                                                    </ul>
-                                                    <ul>
-                                                        <li>
-                                                            + brand design
-                                                        </li>
-                                                        <li>
-                                                            + Web Development
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <h4 class="title-2">
-                                                    Provide data-driven stratege help companies identifies opportunities, reduce risk and achieve long term of our growth. Provide driven on strategie.
-                                                </h4>
-                                                <ul class="list-items">
-                                                    <li>
-                                                        <a href="service.html">Plan</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="service.html">Execute</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="service.html">Succeed</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6">
-                                            <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-03.jpg')}}" alt="img">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-03.jpg')}}" alt="img">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
+                          
                             </div>
                         </div>
                         </div>
@@ -300,7 +205,7 @@
                                             <p class="text wow fadeInUp" data-wow-delay=".3s">
                                                 We are a results-driven IT consulting team helping businesses unlock efficiency.
                                             </p>
-                                            <a href="contact.html" class="news-btn wow fadeInUp" data-wow-delay=".5s">
+                                            <a href="{{ url('/contact') }}" class="news-btn wow fadeInUp" data-wow-delay=".5s">
                                             <span class="text">
                                                 <span class="text-default">Contact us  <i class="fa-regular fa-arrow-up-right"></i></span>
                                                 <span class="text-hover">Contact us  <i class="fa-regular fa-arrow-up-right"></i></span>

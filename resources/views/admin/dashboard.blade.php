@@ -3,6 +3,9 @@
 @section('title', 'Dashboard')
 
 @section('css')
+<style>
+  .country-row{padding:12px 0;border-bottom:1px solid #eee}.country-row:last-child{border-bottom:0}.country-meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}.country-meta strong{color:#222}.country-meta span{color:#777;font-size:12px;white-space:nowrap}.country-card .progress{height:7px;background:#f0f0f0}.country-card .progress-bar{min-width:2px;background:#cf1f42}.country-card.visits .progress-bar{background:#198754}
+</style>
 @endsection
 
 @section('content')
@@ -45,14 +48,14 @@
                         </div>
                       </div>
 
-                      <div class="card-body pt-0"> <span class="f-w-500 c-o-light">Total Contacts Submitted</span>
-                        <h4 class="mb-2">
-                           <span class="counter" data-target="67"></span></h4>
+                         <div class="card-body pt-0"> <span class="f-w-500 c-o-light">Total Visits</span>
+                        <h4 class="mb-2"><span class="counter" data-target="{{ $totalVisitors }}"></span></h4>
                         {{-- <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
-                          <div class="progress-bar bg-primary" style="width: 58%"></div>
-                        </div> --}}
-                        {{-- <span class="user-growth f-12 f-w-500"><i class="icon-arrow-down txt-danger"></i><span class="txt-danger">-4.3%</span></span><span class="user-text">last month</span> --}}
+                          <div class="progress-bar bg-success" style="width: 58%"></div>
+                        </div><span class="user-growth f-12 f-w-500"><i class="icon-arrow-up txt-success"></i><span class="txt-success">+7.9%</span></span><span class="user-text">last month</span> --}}
                       </div>
+
+
                     </div>
                   </div>
                   <div class="col-md-6 col-sm-6"> 
@@ -67,12 +70,20 @@
                          
                         </div>
                       </div>
-                      <div class="card-body pt-0"> <span class="f-w-500 c-o-light">Total Visits</span>
-                        <h4 class="mb-2"><span class="counter" data-target="{{ $totalVisitors }}"></span></h4>
+
+
+
+                   
+     <div class="card-body pt-0"> <span class="f-w-500 c-o-light">Total Contacts Submitted</span>
+                        <h4 class="mb-2">
+                           <span class="counter" data-target="{{ $totalContacts }}"></span></h4>
                         {{-- <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
-                          <div class="progress-bar bg-success" style="width: 58%"></div>
-                        </div><span class="user-growth f-12 f-w-500"><i class="icon-arrow-up txt-success"></i><span class="txt-success">+7.9%</span></span><span class="user-text">last month</span> --}}
+                          <div class="progress-bar bg-primary" style="width: 58%"></div>
+                        </div> --}}
+                        {{-- <span class="user-growth f-12 f-w-500"><i class="icon-arrow-down txt-danger"></i><span class="txt-danger">-4.3%</span></span><span class="user-text">last month</span> --}}
                       </div>
+
+
                     </div>
                   </div>
                 
@@ -81,6 +92,25 @@
               </div>
      
          
+            </div>
+            <div class="row">
+              @foreach ([['title' => 'Top Countries by Visits', 'rows' => $visitorCountries, 'class' => 'visits'], ['title' => 'Top Countries by Contact Submissions', 'rows' => $contactCountries, 'class' => 'contacts']] as $countryGroup)
+                <div class="col-xl-6">
+                  <div class="card country-card {{ $countryGroup['class'] }}">
+                    <div class="card-header card-no-border"><h5>{{ $countryGroup['title'] }}</h5><p class="mb-0 text-muted">Top 10 countries with share of total</p></div>
+                    <div class="card-body pt-0">
+                      @forelse ($countryGroup['rows'] as $country)
+                        <div class="country-row">
+                          <div class="country-meta"><strong>{{ $country->country }}</strong><span>{{ number_format($country->total) }} &middot; {{ number_format($country->percentage, 1) }}%</span></div>
+                          <div class="progress" role="progressbar" aria-label="{{ $country->country }}" aria-valuenow="{{ $country->percentage }}" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: {{ $country->percentage }}%"></div></div>
+                        </div>
+                      @empty
+                        <p class="text-muted mb-0">No country data is available yet.</p>
+                      @endforelse
+                    </div>
+                  </div>
+                </div>
+              @endforeach
             </div>
           </div>
           <!-- Container-fluid Ends-->

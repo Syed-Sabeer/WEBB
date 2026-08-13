@@ -66,10 +66,10 @@
                                                 <span class="theme-btn-arrow-right"> <i
                                                         class="fa-solid fa-arrow-up-right"></i> </span>
                                             </a>
-                                            <a class="theme-btn-main style-2 border-style" href="project.html">
+                                            <a class="theme-btn-main style-2 border-style" href="{{ url('/service') }}">
                                                 <span class="theme-btn-arrow-left"> <i
                                                         class="fa-solid fa-arrow-up-right"></i> </span>
-                                                <span class="theme-btn">view work</span>
+                                                <span class="theme-btn">view Services</span>
                                                 <span class="theme-btn-arrow-right"> <i
                                                         class="fa-solid fa-arrow-up-right"></i> </span>
                                             </a>
@@ -296,7 +296,7 @@
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
                                                 <p>001. / service</p>
-                                                <h3 class="title"><a href="service-details.html">Web App Development</a></h3>
+                                                <h3 class="title"><a href="{{ route('service.detail', 'website-app-development') }}">Web App Development</a></h3>
                                                 <div class="service-list">
                                                     <ul>
                                                         <li>
@@ -321,13 +321,13 @@
                                                 </h4>
                                                 <ul class="list-items">
                                                     <li>
-                                                        <a href="service.html">Plan</a>
+                                                        <a href="{{ route('service.detail', 'website-app-development') }}">Plan</a>
                                                     </li>
                                                     <li>
-                                                        <a href="service.html">Execute</a>
+                                                        <a href="{{ route('service.detail', 'website-app-development') }}">Execute</a>
                                                     </li>
                                                     <li>
-                                                        <a href="service.html">Succeed</a>
+                                                        <a href="{{ route('service.detail', 'website-app-development') }}">Succeed</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -345,7 +345,7 @@
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
                                                 <p>002. / service</p>
-                                                <h3 class="title"><a href="service-details.html">Mobile App Development</a></h3>
+                                                <h3 class="title"><a href="{{ route('service.detail', 'mobile-app-development') }}">Mobile App Development</a></h3>
                                                 <div class="service-list">
                                                     <ul>
                                                         <li>
@@ -370,13 +370,13 @@
                                                 </h4>
                                                 <ul class="list-items">
                                                     <li>
-                                                        <a href="service.html">Plan</a>
+                                                        <a href="{{ route('service.detail', 'mobile-app-development') }}">Plan</a>
                                                     </li>
                                                     <li>
-                                                        <a href="service.html">Execute</a>
+                                                        <a href="{{ route('service.detail', 'mobile-app-development') }}">Execute</a>
                                                     </li>
                                                     <li>
-                                                        <a href="service.html">Succeed</a>
+                                                        <a href="{{ route('service.detail', 'mobile-app-development') }}">Succeed</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -394,7 +394,7 @@
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
                                                 <p>003. / service</p>
-                                                <h3 class="title"><a href="service-details.html">AI/ML Development</a></h3>
+                                                <h3 class="title"><a href="{{ route('service.detail', 'ai-ml-development') }}">AI/ML Development</a></h3>
                                                 <div class="service-list">
                                                     <ul>
                                                         <li>
@@ -419,13 +419,13 @@
                                                 </h4>
                                                 <ul class="list-items">
                                                     <li>
-                                                        <a href="service.html">Plan</a>
+                                                        <a href="{{ route('service.detail', 'ai-ml-development') }}">Plan</a>
                                                     </li>
                                                     <li>
-                                                        <a href="service.html">Execute</a>
+                                                        <a href="{{ route('service.detail', 'ai-ml-development') }}">Execute</a>
                                                     </li>
                                                     <li>
-                                                        <a href="service.html">Succeed</a>
+                                                        <a href="{{ route('service.detail', 'ai-ml-development') }}">Succeed</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -443,7 +443,7 @@
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
                                                 <p>004. / service</p>
-                                                <h3 class="title"><a href="https://avrioglobal.io/services/digital-marketing/">Digital Marketing</a></h3>
+                                                <h3 class="title"><a href="{{ route('service.detail', 'digital-marketing') }}">Digital Marketing</a></h3>
                                                 <div class="service-list">
                                                     <ul>
                                                         <li>+ SEO strategy</li>
@@ -459,9 +459,9 @@
                                                     marketing campaigns built around your business objectives.
                                                 </h4>
                                                 <ul class="list-items">
-                                                    <li><a href="https://avrioglobal.io/services/digital-marketing/">Discover</a></li>
-                                                    <li><a href="https://avrioglobal.io/services/digital-marketing/">Engage</a></li>
-                                                    <li><a href="https://avrioglobal.io/services/digital-marketing/">Grow</a></li>
+                                                    <li><a href="{{ route('service.detail', 'digital-marketing') }}">Discover</a></li>
+                                                    <li><a href="{{ route('service.detail', 'digital-marketing') }}">Engage</a></li>
+                                                    <li><a href="{{ route('service.detail', 'digital-marketing') }}">Grow</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -478,7 +478,7 @@
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-content">
                                                 <p>005. / service</p>
-                                                <h3 class="title"><a href="https://avrioglobal.io/services/digital-marketing/">SEO &amp; Content Writing</a></h3>
+                                                <h3 class="title"><a href="{{ route('service.detail', 'seo-content-writing') }}">SEO &amp; Content Writing</a></h3>
                                                 <div class="service-list">
                                                     <ul>
                                                         <li>+ keyword research</li>
@@ -494,9 +494,9 @@
                                                     optimized content that speaks directly to your audience.
                                                 </h4>
                                                 <ul class="list-items">
-                                                    <li><a href="https://avrioglobal.io/services/digital-marketing/">Research</a></li>
-                                                    <li><a href="https://avrioglobal.io/services/digital-marketing/">Create</a></li>
-                                                    <li><a href="https://avrioglobal.io/services/digital-marketing/">Rank</a></li>
+                                                    <li><a href="{{ route('service.detail', 'seo-content-writing') }}">Research</a></li>
+                                                    <li><a href="{{ route('service.detail', 'seo-content-writing') }}">Create</a></li>
+                                                    <li><a href="{{ route('service.detail', 'seo-content-writing') }}">Rank</a></li>
                                                 </ul>
                                             </div>
                                         </div>

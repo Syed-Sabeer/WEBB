@@ -5,7 +5,7 @@
     <div class="container">
         <div class="footer-top-wrapper-4">
             <div class="footer-left wow fadeInUp" data-wow-delay=".3s">
-                <a href="index.html" class="footer-logo">
+                <a href="{{ url('/') }}" class="footer-logo">
                     <img src="{{ asset('FrontendAssets/img/white-file/avrio-logo.png') }}" alt="img">
                 </a>
               <p>
@@ -20,7 +20,7 @@
                 <h2 class="title split-title">
                     Join Our Team To Create <br> The <span>Best Digital Solutions.</span>
                 </h2>
-                <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".3s" href="contact.html">
+                <a class="theme-btn-main style-2 wow fadeInUp" data-wow-delay=".3s" href="{{ url('/contact') }}">
                     <span class="theme-btn-arrow-left"> <i class="fa-solid fa-arrow-up-right"></i>
                     </span>
                     <span class="theme-btn">Let’s Talk</span>
@@ -81,10 +81,10 @@
                                 </li>
                             </ul>
                             <div class="social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                <a href="facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                <a href="instagram.com"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/avrio-global/"><i class="fab fa-linkedin-in"></i></a>
+                                
                             </div>
                         </div>
                     </div>

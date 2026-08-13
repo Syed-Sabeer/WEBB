@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App\Support\IpCountryResolver;
 
 class ContactController extends Controller
 {
@@ -56,8 +57,10 @@ class ContactController extends Controller
                 'timestamp' => now()
             ]);
 
+            $location = IpCountryResolver::resolve($request);
+
             // Use database transaction to ensure atomicity
-            $contactSubmission = DB::transaction(function () use ($request) {
+            $contactSubmission = DB::transaction(function () use ($request, $location) {
                 // Double-check for duplicates within the transaction
                 $recentSubmission = ContactSubmission::where('email', $request->email)
                     ->where('message', $request->message)
@@ -75,6 +78,8 @@ class ContactController extends Controller
                     'email' => $request->email,
                     'subject' => $request->subject,
                     'message' => $request->message,
+                    'ip_address' => $location['ip'],
+                    'country' => $location['country'],
                 ]);
             });
 

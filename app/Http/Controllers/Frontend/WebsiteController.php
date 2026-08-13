@@ -74,7 +74,7 @@ class WebsiteController extends Controller
 
 		$items = [
 			['mobile-app-development','MOBILE APP DEVELOPMENT','Your Next Great Idea Deserves the Attention of Our Mobile App Development Team.','We build intuitive, high-performance iOS and Android applications that turn ideas into engaging products.'],
-			['website-app-development','WEBSITE APP DEVELOPMENT','Professional Web Application Development to uplift your ROI','Scalable, secure web applications designed around your workflows, customers, and growth goals.'],
+			['website-app-development','WEB APP DEVELOPMENT','Professional Web Application Development to uplift your ROI','Scalable, secure web applications designed around your workflows, customers, and growth goals.'],
 			['ai-ml-development','AI/ML DEVELOPMENT SERVICES','Build robust, reliable software that meets your business needs.','From predictive models to intelligent automation, we make AI practical, measurable, and ready for production.'],
 			['seo-content-writing','SEO & CONTENT WRITING','Take control of the digital world with SEO-optimized content.','Research-led content and technical SEO that improve visibility, authority, and qualified organic traffic.'],
 			['digital-marketing','DIGITAL MARKETING','Reach your potential customers through social media and digital campaigns.','Performance marketing, social strategy, and conversion-focused campaigns that connect your brand with the right audience.'],

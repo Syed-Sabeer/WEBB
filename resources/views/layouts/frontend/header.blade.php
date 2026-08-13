@@ -144,10 +144,9 @@ CANADA
                             Follow us:
                         </span>
                         <div class="social-icon d-flex align-items-center">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                <a href="instagram.com"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/avrio-global/"><i class="fab fa-linkedin-in"></i></a>
                         </div>
 
                     </div>
@@ -241,10 +240,10 @@ PAKISTAN
                                     Follow us:
                                 </span>
                                 <div class="social-icon d-flex align-items-center">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-vimeo-v"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                        <a href="facebook.com"><i class="fab fa-facebook-f"></i></a>
+                                <a href="instagram.com"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/avrio-global/"><i class="fab fa-linkedin-in"></i></a>
+                                    
                                 </div>
 
                             </div>

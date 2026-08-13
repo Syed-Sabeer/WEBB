@@ -4,10 +4,10 @@
             <div class="logo-wrapper">
               <a href="index.html">
                 <!-- <h6> -->
-                Avrio Global Inc
+                {{-- Avrio Global Inc --}}
                 <!-- </h6> -->
-                <!-- <img class="img-fluid for-light" src="" alt="">
-                <img class="img-fluid for-dark" src="" alt=""> -->
+                 <img class="img-fluid for-light" style="max-width:40%" src="{{asset('FrontendAssets/img/white-file/avrio-logo.png')}}" alt="">
+                <img class="img-fluid for-dark" style="max-width:40%" src="{{asset('FrontendAssets/img/white-file/darklogo.png')}}" alt=""> 
 
               </a>
               <div class="back-btn"><i class="fa-solid fa-angle-left"></i></div>
@@ -85,13 +85,13 @@
 
                        
 
-                  <li class="sidebar-list"><i class="fa-solid fa-thumbtack"></i><a class="sidebar-link sidebar-title link-nav" href="{{route('admin.service.index')}}">
+                  {{-- <li class="sidebar-list"><i class="fa-solid fa-thumbtack"></i><a class="sidebar-link sidebar-title link-nav" href="{{route('admin.service.index')}}">
                       <svg class="stroke-icon">
                         <use href="{{asset('AdminAssets/svg/icon-sprite.svg#stroke-home')}}"></use>
                       </svg>
                       <svg class="fill-icon">
                           <use href="{{asset('AdminAssets/svg/icon-sprite.svg#fill-home')}}"></use>
-                      </svg><span>Services</span></a></li>
+                      </svg><span>Services</span></a></li> --}}
 
             
               
