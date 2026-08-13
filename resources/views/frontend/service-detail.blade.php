@@ -3,7 +3,8 @@
 
 @section('css')
 <style>
-  .services-details-section { background: #fff; }.services-details-section > .light-bg,.services-details-section > .bg-line,.services-details-section > .title-area{display:none}.service-details-wrapper { padding-top:70px; }.service-details-wrapper .details-top-item { min-height:430px; padding:38px; border:1px solid #ececec; border-radius:20px; background:#fff; box-shadow:0 12px 35px rgba(20,20,20,.06); display:flex!important; flex-direction:column!important; justify-content:center; }.service-details-wrapper .details-top-item .left-content{width:100%;max-width:none}.service-details-wrapper .details-top-item h2{font-size:clamp(32px,3vw,48px);line-height:1.12;margin-bottom:18px}.service-details-wrapper .detail-hero-image{display:flex;align-items:stretch}.service-details-wrapper .service-details-image{width:100%;height:100%;margin:0}.service-details-wrapper .service-details-image img{width:100%!important;height:430px!important;min-height:0!important;object-fit:cover;border-radius:20px;box-shadow:0 12px 35px rgba(20,20,20,.1)}.service-details-wrapper h2,.service-concept-item h2,.service-visual-section h2 { color:#161616; }.service-details-wrapper p,.service-concept-item p,.service-visual-section p { color:#626262;line-height:1.7 }.service-details-wrapper .details-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;margin:20px 0 0!important}.service-details-wrapper .details-list li { background:#f8f8f8; border-radius:10px; padding:12px 14px!important; margin:0!important; color:#222; font-size:14px; }.details-list li i { color:#cf1f42; }.service-visual-image img,.details-thumb img { border-radius:18px; }.service-concept-item { margin-top:60px; padding:42px; border-radius:20px; background:#f7f7f7; }.service-concept-box { background:#fff; border-radius:14px; padding:22px; margin-bottom:14px; border-left:4px solid #cf1f42; }.service-concept-box h3 { color:#161616; font-size:21px; }.service-visual-section { background:#fff; }.service-visual-item { background:#f8f8f8; padding:24px; border-radius:18px; height:100%; }@media(max-width:991px){.service-details-wrapper .details-top-item{min-height:auto}.service-details-wrapper .service-details-image img{height:350px!important}}@media(max-width:767px){.service-details-wrapper .details-top-item,.service-concept-item{padding:24px}.service-details-wrapper .details-list{grid-template-columns:1fr}.service-details-wrapper .service-details-image img{height:260px!important}}
+  .services-details-section { background: #fff; }.services-details-section > .light-bg,.services-details-section > .bg-line,.services-details-section > .title-area{display:none}.service-details-wrapper { padding-top:70px; }.service-details-wrapper .details-top-item { min-height:430px; padding:38px; border:1px solid #ececec; border-radius:20px; background:#fff; box-shadow:0 12px 35px rgba(20,20,20,.06); display:flex!important; flex-direction:column!important; justify-content:center; }.service-details-wrapper .details-top-item .left-content{width:100%;max-width:none}.service-details-wrapper .details-top-item h2{font-size:clamp(32px,3vw,48px);line-height:1.12;margin-bottom:18px}.service-details-wrapper .detail-hero-image{display:flex;align-items:stretch}.service-details-wrapper .service-details-image{width:100%;height:100%;margin:0}.service-details-wrapper .service-details-image img{width:100%!important;height:430px!important;min-height:0!important;object-fit:cover;border-radius:20px;box-shadow:0 12px 35px rgba(20,20,20,.1)}.service-details-wrapper h2,.service-concept-item h2,.service-visual-section h2 { color:#161616; }.service-details-wrapper p,.service-concept-item p,.service-visual-section p { color:#626262;line-height:1.7 }.service-details-wrapper .details-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;margin:20px 0 0!important}.service-details-wrapper .details-list li { background:#f8f8f8; border-radius:10px; padding:12px 14px!important; margin:0!important; color:#222; font-size:14px; }.details-list li i { color:#cf1f42; }.service-visual-image img,.details-thumb img { border-radius:18px; }.service-concept-item { margin-top:60px; padding:42px; border-radius:20px; background:#f7f7f7; }.service-concept-box { background:#fff; border-radius:14px; padding:22px; margin-bottom:14px; border-left:4px solid #cf1f42; }.service-concept-box h3 { color:#161616; font-size:21px; }.service-visual-section { background:#fff; }.service-visual-item { background:#f8f8f8; padding:24px; border-radius:18px; height:100%; }
+  .integration-showcase{width:100%;margin-top:70px;padding:80px 0;overflow:hidden;border-radius:24px;background:#171717;color:#fff}.integration-showcase .integration-heading{max-width:900px;margin:0 auto 46px;padding:0 24px;text-align:center}.integration-showcase .sub-title{color:#fff}.integration-showcase h2{margin-top:16px;color:#fff;font-size:clamp(36px,4.4vw,62px);line-height:1.08}.integration-showcase h2 .style-font{color:#cf1f42}.integration-showcase .integration-copy{max-width:650px;margin:18px auto 0;color:rgba(255,255,255,.66);font-size:16px;line-height:1.7}.integration-track-wrap{position:relative;display:flex;overflow:hidden;padding:10px 0}.integration-track-wrap:before,.integration-track-wrap:after{content:'';position:absolute;z-index:2;top:0;bottom:0;width:12%;pointer-events:none}.integration-track-wrap:before{left:0;background:linear-gradient(90deg,#171717,transparent)}.integration-track-wrap:after{right:0;background:linear-gradient(-90deg,#171717,transparent)}.integration-track{display:flex;flex-shrink:0;gap:18px;min-width:max-content;padding-right:18px;animation:integrationScroll 38s linear infinite}.integration-track-wrap.reverse .integration-track{animation-direction:reverse;animation-duration:44s}.integration-logo{width:112px;height:96px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:#fff;box-shadow:0 12px 30px rgba(0,0,0,.18);transition:transform .3s ease,border-color .3s ease}.integration-logo img{width:52px;height:52px;object-fit:contain}.integration-logo:hover{transform:translateY(-7px);border-color:#cf1f42}.integration-track-wrap:hover .integration-track{animation-play-state:paused}@keyframes integrationScroll{to{transform:translateX(-50%)}}@media(max-width:991px){.integration-showcase{margin-top:45px;padding:60px 0}.integration-logo{width:96px;height:84px}}@media(max-width:767px){.service-details-wrapper .details-top-item,.service-concept-item{padding:24px}.service-details-wrapper .details-list{grid-template-columns:1fr}.service-details-wrapper .service-details-image img{height:260px!important}.integration-showcase{border-radius:18px}.integration-logo{width:82px;height:74px}.integration-logo img{width:42px;height:42px}}@media(prefers-reduced-motion:reduce){.integration-track{animation-play-state:paused}}
 </style>
 
 @endsection
@@ -74,7 +75,8 @@
 
 
    <!-- Powerful Feature Section Start -->
-                    <section class="powerful-feature-section section-bg fix section-padding">
+                    <section class="integration-showcase">
+                        {{-- Legacy integration marquee retained temporarily for reference.
                         <div class="container">
                             <div class="section-title text-center">
                                 <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
@@ -320,6 +322,32 @@
                                 </div>
                             </div>
                         </div>
+                        --}}
+                        @php
+                            $integrationLogos = range(11, 36);
+                            $integrationRows = [
+                                array_slice($integrationLogos, 0, 13),
+                                array_slice($integrationLogos, 13, 13),
+                            ];
+                        @endphp
+                        <div class="integration-heading">
+                            <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
+                                <img src="{{ asset('FrontendAssets/img/home-1/01.png') }}" alt=""> Technology integrations
+                            </span>
+                            <h2><span class="style-font">Tools that connect</span> with the way your business works</h2>
+                            <p class="integration-copy">We build flexible solutions around the platforms your team already trusts, creating one connected technology ecosystem without disrupting your workflow.</p>
+                        </div>
+                        @foreach ($integrationRows as $rowIndex => $logos)
+                            <div class="integration-track-wrap {{ $rowIndex === 1 ? 'reverse' : '' }}" aria-label="Technology integration logos">
+                                <div class="integration-track">
+                                    @foreach (array_merge($logos, $logos) as $logo)
+                                        <div class="integration-logo">
+                                            <img src="{{ asset('FrontendAssets/img/integration/' . $logo . '.png') }}" alt="Integration partner {{ $logo }}" loading="lazy">
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endforeach
                     </section>
 
 

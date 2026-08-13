@@ -44,7 +44,7 @@
                                            12+ years of experience
                                         </li>
                                         <li>
-                                            (©2015 — 2026)
+                                            (&copy;2020 — {{ date('Y') }})
                                         </li>
                                     </ul>
                                     <h2 class="title wa_title_spilt_1">
