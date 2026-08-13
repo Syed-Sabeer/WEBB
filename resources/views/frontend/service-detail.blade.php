@@ -60,11 +60,269 @@
                                             </li>
                                         </ul>
                                     </div>
+
+
+
+
+                                    
                                     <div class="col-lg-6 detail-hero-image">
                                         <div class="service-details-image">
                                             <img data-speed=".8" src="{{ asset($service['image'])}}" alt="{{ $service['title'] }}">
                                         </div>
                                     </div>
+
+
+
+   <!-- Powerful Feature Section Start -->
+                    <section class="powerful-feature-section section-bg fix section-padding">
+                        <div class="container">
+                            <div class="section-title text-center">
+                                <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
+                                    <img src="assets/img/home-1/01.png" alt="img"> Powerful features integrations
+                                </span>
+                                    <h2 class="wa_title_spilt_1">
+                                    <span class="style-font">Delivering Innovative </span> IT Solutions That Empower In Businesses To
+                                    <span class="style-color">Grow For Connect And Succeed In The Digital Era And Unwavering.</span>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="powerful-marque-section">
+                            <div class="marquee">
+                                <div class="marquee-group">
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature1.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature2.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature3.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature4.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature5.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature6.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature7.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature8.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature9.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature10.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature11.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature12.png" alt="">
+                                    </div>
+                                </div>
+                                 <div class="marquee-group">
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature1.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature2.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature3.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature4.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature5.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature6.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature7.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature8.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature9.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature10.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature11.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature12.png" alt="">
+                                    </div>
+                                </div>
+                                 <div class="marquee-group">
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature1.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature2.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature3.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature4.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature5.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature6.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature7.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature8.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature9.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature10.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature11.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature12.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="marquee marquee-2">
+                                <div class="marquee-group">
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature1.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature2.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature3.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature4.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature5.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature6.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature7.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature8.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature9.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature10.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature11.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature12.png" alt="">
+                                    </div>
+                                </div>
+                                 <div class="marquee-group">
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature1.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature2.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature3.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature4.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature5.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature6.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature7.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature8.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature9.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature10.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature11.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature12.png" alt="">
+                                    </div>
+                                </div>
+                                 <div class="marquee-group">
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature1.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature2.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature3.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature4.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature5.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature6.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature7.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature8.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature9.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature10.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature11.png" alt="">
+                                    </div>
+                                    <div class="icon-box">
+                                        <img src="assets/img/home-3/feature12.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
                                     <div class="service-concept-item">
                                         <div class="number-list">
                                             <span class="number">01</span>
@@ -112,37 +370,8 @@
                     </section>
 
                      <!-- Service-Visual-Section Start -->
-                    <section class="service-visual-section section-padding fix">
-                        <div class="container container-1680">
-                            <div class="section-title-4 mb-4">
-                                <h2>
-                                    Turning {{ $service['title'] }} Into <br> Measurable Results
-                                </h2>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="service-visual-item">
-                                        <p>
-                                            Collaboration is key to our process. We work closely with clients, understanding their feedback and iterating rapidly to ensure the outcome aligns perfectly with their vision. Every design decision is deliberate, backed by research, creativity, and a deep understanding of human behavior. This approach allows us to craft solutions.
-                                        </p>
-                                        <div class="service-visual-image">
-                                            <img data-speed=".8" src="{{ asset($service['image'])}}" alt="{{ $service['title'] }}">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="service-visual-item">
-                                        <p>
-                                            Collaboration is key to our process. We work closely with clients, understanding their feedback and iterating rapidly to ensure the outcome aligns perfectly with their vision. Every design decision is deliberate, backed by research, creativity, and a deep understanding of human behavior. This approach allows us to craft solutions.
-                                        </p>
-                                        <div class="service-visual-image">
-                                            <img data-speed=".8" src="{{ asset($service['image'])}}" alt="{{ $service['title'] }}">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+               
+                
 
            
 

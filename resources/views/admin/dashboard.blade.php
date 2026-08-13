@@ -68,7 +68,7 @@
                         </div>
                       </div>
                       <div class="card-body pt-0"> <span class="f-w-500 c-o-light">Total Visits</span>
-                        <h4 class="mb-2"><span class="counter" data-target="56"></span></h4>
+                        <h4 class="mb-2"><span class="counter" data-target="{{ $totalVisitors }}"></span></h4>
                         {{-- <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
                           <div class="progress-bar bg-success" style="width: 58%"></div>
                         </div><span class="user-growth f-12 f-w-500"><i class="icon-arrow-up txt-success"></i><span class="txt-success">+7.9%</span></span><span class="user-text">last month</span> --}}

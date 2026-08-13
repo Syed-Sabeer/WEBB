@@ -163,7 +163,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('service-page', [AdminServicePageController::class, 'index'])->name('service-page.index');
     Route::get('company-welcome', [AdminWebsiteController::class, 'companyWelcome'])->name('company.welcome');
     Route::put('company-welcome/update', [AdminWebsiteController::class, 'companyWelcomeUpdate'])->name('company.welcome.update');
-    Route::put('shareyourmusic/update', [AdminShareYourMusicController::class, 'cmsupdate'])->name('cms.shareyourmusic.update');
+
     Route::get('about', [AdminAboutController::class, 'index'])->name('about.index');
 
     Route::put('website/sections/update', [AdminWebsiteController::class, 'updateAllSections'])->name('website.sections.update');
@@ -178,13 +178,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('newsletterlist', [AdminNewsletterSubmissionController::class, 'index'])->name('newsletterlist');
     Route::delete('newsletterlist/{id}', [AdminNewsletterSubmissionController::class, 'destroy'])->name('newsletterlist.destroy');
 Route::delete('contacts/{id}', [AdminContactController::class, 'destroy'])->name('contact.destroy');
-
-
-    Route::get('orders/gift', [AdminOrderController::class, 'giftIndex'])->name('gift.orders');
-    Route::delete('orders/gift/{id}', [AdminOrderController::class, 'giftDestroy'])->name('gift.orders.destroy');
-
-        Route::get('orders/ring', [AdminOrderController::class, 'ringIndex'])->name('ring.orders');
-    Route::delete('orders/ring/{id}', [AdminOrderController::class, 'ringDestroy'])->name('ring.orders.destroy');
 
 
 

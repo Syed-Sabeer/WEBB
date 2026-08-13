@@ -97,30 +97,23 @@
                         <div class="gt-list-wrap">
                             <ul class="gt-list-area">
                                 <li>
-                                    <a href="contact.html">
+                                    <a href="{{ url('/contact') }}">
                                         Contact us
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="team.html">
+                                    <a href="{{ url('/about') }}">
                                         Our teams
                                     </a>
                                 </li>
+                                
+                                
                                 <li>
-                                    <a href="contact.html">
-                                        Careers
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="contact.html">
+                                    <a href="{{ url('/contact') }}">
                                         Feedback
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="404.html">
-                                        Error 404
-                                    </a>
-                                </li>
+                                
                             </ul>
                            
                         </div>

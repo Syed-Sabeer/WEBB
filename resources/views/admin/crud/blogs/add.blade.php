@@ -83,10 +83,7 @@
                                   <input class="form-control" name="slug" type="text" placeholder="blog-slug" value="{{ old('slug') }}">
                                 </div>
 
-                                <div class="col-md-12">
-                                  <label class="form-label">Summary Note</label>
-                                  <textarea name="summary_note" class="form-control" rows="3" placeholder="Add a short summary note for this blog">{{ old('summary_note') }}</textarea>
-                                </div>
+                           
 
                                 <div class="col-md-12">
                                   <label class="form-label">Blog Content</label>

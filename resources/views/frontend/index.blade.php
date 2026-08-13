@@ -2,7 +2,41 @@
 
 
 @section('css')
-
+<style>
+    .industries-section { position: relative; overflow: hidden; background: #f7f7f7; }
+    .industries-section::before { content: ''; position: absolute; width: 560px; height: 560px; top: 58%; left: 50%; border: 1px solid rgba(207,31,66,.09); border-radius: 50%; transform: translate(-50%,-50%); box-shadow: 0 0 0 70px rgba(207,31,66,.025), 0 0 0 140px rgba(207,31,66,.018); }
+    .industries-heading { position: relative; z-index: 1; max-width: 820px; margin: 0 auto 55px; text-align: center; }
+    .industries-heading h2 { display: block; color: #161616; font-size: clamp(38px,5vw,68px); line-height: 1.08; letter-spacing: -.035em; }
+    .industries-heading h2 span { display: inline; position: static; transform: none; white-space: normal; }
+    .industries-heading h2 .style-font { color: #cf1f42; }
+    .industries-heading p { max-width: 650px; margin: 20px auto 0; color: #626262; font-size: 17px; line-height: 1.7; }
+    .industries-map { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(210px,1fr) minmax(420px,1.8fr) minmax(210px,1fr); gap: 45px; align-items: center; }
+    .industry-list { display: flex; flex-direction: column; gap: 22px; }
+    .industry-item { position: relative; min-height: 88px; display: flex; align-items: center; gap: 16px; padding: 16px 18px; border: 1px solid #e6e6e6; border-radius: 14px; background: rgba(255,255,255,.92); box-shadow: 0 8px 25px rgba(22,22,22,.04); transition: transform .3s ease, border-color .3s ease; }
+    .industry-item:hover { transform: translateY(-4px) scale(1.015); border-color: rgba(207,31,66,.45); }
+    .industry-item::after { content: ''; position: absolute; top: 50%; width: 46px; border-top: 1px dashed rgba(207,31,66,.5); }
+    .industry-list-left .industry-item::after { left: 100%; }
+    .industry-list-right .industry-item::after { right: 100%; }
+    .industry-icon { flex: 0 0 46px; width: 46px; height: 46px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: #cf1f42; color: #fff; font-size: 17px; transition: transform .35s ease, box-shadow .35s ease; }
+    .industry-item:hover .industry-icon { transform: rotate(8deg) scale(1.1); box-shadow: 0 8px 20px rgba(207,31,66,.3); }
+    .industry-item h3 { margin: 0 0 4px; color: #161616; font-size: 18px; line-height: 1.2; }
+    .industry-item p { margin: 0; color: #777; font-size: 12px; line-height: 1.45; }
+    .industries-center { position: relative; padding: 34px; border: 1px solid rgba(207,31,66,.24); border-radius: 50%; background: rgba(255,255,255,.7); }
+    .industries-center::before { content: ''; position: absolute; inset: 18px; z-index: -1; border: 1px dashed rgba(207,31,66,.35); border-radius: 50%; animation: industryOrbit 24s linear infinite; }
+    .industries-center-image { position: relative; overflow: hidden; aspect-ratio: 1/1; border-radius: 50%; background: #202020; box-shadow: 0 25px 60px rgba(22,22,22,.18); }
+    .industries-center-image img { width: 100%; height: 100%; object-fit: cover; animation: industryImageFloat 6s ease-in-out infinite; }
+    .industries-center-label { position: absolute; left: 50%; bottom: 16px; width: calc(100% - 80px); padding: 18px 20px; transform: translateX(-50%); border-radius: 14px; background: rgba(20,20,20,.9); text-align: center; backdrop-filter: blur(8px); }
+    .industries-center-label h3 { margin: 0 0 4px; color: #fff; font-size: 22px; }
+    .industries-center-label span { color: rgba(255,255,255,.7); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    @keyframes industryOrbit { to { transform: rotate(360deg); } }
+    @keyframes industryImageFloat { 0%,100% { transform: scale(1.01); } 50% { transform: scale(1.06); } }
+    @keyframes industryConnector { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+    .industry-item::after { animation: industryConnector 2.4s ease-in-out infinite; }
+    @media (max-width: 1199px) { .industries-map { grid-template-columns: 1fr 1.45fr 1fr; gap: 28px; }.industry-item::after { width: 29px; }.industry-item { padding: 13px; }.industry-item p { display: none; } }
+    @media (max-width: 991px) { .industries-map { grid-template-columns: 1fr 1fr; }.industries-center { grid-column: 1/-1; grid-row: 1; width: min(520px,100%); margin: 0 auto 15px; }.industry-item::after { display: none; } }
+    @media (max-width: 575px) { .industries-map { grid-template-columns: 1fr; gap: 16px; }.industries-center { padding: 20px; }.industries-center-label { width: calc(100% - 55px); bottom: 8px; }.industry-list { gap: 16px; }.industries-heading { margin-bottom: 35px; }.industry-item p { display: block; } }
+    @media (prefers-reduced-motion: reduce) { .industries-center::before,.industries-center-image img,.industry-item::after { animation: none; }.industry-item,.industry-icon { transition: none; } }
+</style>
 @endsection
 
 @section('content')
@@ -300,8 +334,8 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-01.jpg')}}" alt="img">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-01.jpg')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/services/website-app-development.png')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/services/website-app-development.png')}}" alt="img">
                                             </div>
                                         </div>
                                     </div>
@@ -349,8 +383,8 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-02.jpg')}}" alt="img">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-02.jpg')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/services/mobile-app-development.png')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/services/mobile-app-development.png')}}" alt="img">
                                             </div>
                                         </div>
                                     </div>
@@ -398,8 +432,8 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-03.jpg')}}" alt="img">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-03.jpg')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/services/ai-ml-development.png')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/services/ai-ml-development.png')}}" alt="img">
                                             </div>
                                         </div>
                                     </div>
@@ -433,8 +467,8 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-01.jpg')}}" alt="Digital marketing">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-01.jpg')}}" alt="Digital marketing">
+                                                <img src="{{ asset('FrontendAssets/img/services/digital-marketing.png')}}" alt="Digital marketing">
+                                                <img src="{{ asset('FrontendAssets/img/services/digital-marketing.png')}}" alt="Digital marketing">
                                             </div>
                                         </div>
                                     </div>
@@ -468,8 +502,8 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-02.jpg')}}" alt="SEO and content writing">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/service-02.jpg')}}" alt="SEO and content writing">
+                                                <img src="{{ asset('FrontendAssets/img/services/seo-content-writing.png')}}" alt="SEO and content writing">
+                                                <img src="{{ asset('FrontendAssets/img/services/seo-content-writing.png')}}" alt="SEO and content writing">
                                             </div>
                                         </div>
                                     </div>
@@ -641,158 +675,34 @@
         </div>
     </div>
 </div>
-                    <!-- Project Section Start -->
-                    <section class="project-section section-padding">
+                    <!-- Industries Section Start -->
+                    <section class="industries-section section-padding">
                         <div class="container">
-                            <div class="section-title mb-0 work-title scroll-anim">
+                            <div class="industries-heading scroll-anim">
                                 <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">
-                                    <img src="{{ asset('FrontendAssets/img/home-1/01.png')}}" alt="img"> Completed projects
+                                    <img src="{{ asset('FrontendAssets/img/home-1/01.png')}}" alt=""> Industries we serve
                                 </span>
-                                <h2 class="work-title">
-                                    <span class="jump-anim">Project</span>
-                                    <span class="last style-font studio-text">Showcase</span>
-                                </h2>
+                                <h2><span>Technology built for</span> <span class="style-font">your industry</span></h2>
+                                <p>We combine deep domain understanding with modern engineering to solve the operational, customer, and growth challenges unique to every sector.</p>
                             </div>
-                        </div>
-                        <div class="container-fluid">
-                            <div class="row design-choose-item-wrap">
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="project-box-items-2 design-choose-item-1">
-                                        <div class="thumb">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-01.jpg')}}" alt="img">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-01.jpg')}}" alt="img">
-                                            <a href="project-details.html" class="arrow-icon">
-                                                <i class="fa-solid fa-arrow-up-right"></i>
-                                            </a>
-                                            <div class="content-items">
-                                                <div class="content">
-                                                    <h3 class="title">
-                                                        <a href="project-details.html">Market Expansion</a>
-                                                    </h3>
-                                                    <div class="tag-items">
-                                                        <a href="project.html">Consulting</a>
-                                                        <a href="project.html">Business</a>
-                                                    </div>
-                                                </div>
-                                                <span class="year-text">[ 2025 ]</span>
-                                            </div>
-                                        </div>
+                            <div class="industries-map">
+                                <div class="industry-list industry-list-left">
+                                    <article class="industry-item wow fadeInLeft" data-wow-delay=".1s"><span class="industry-icon"><i class="fa-solid fa-heart-pulse"></i></span><div><h3>Healthcare</h3><p>Connected care and secure health platforms.</p></div></article>
+                                    <article class="industry-item wow fadeInLeft" data-wow-delay=".2s"><span class="industry-icon"><i class="fa-solid fa-building-columns"></i></span><div><h3>Finance & Fintech</h3><p>Banking, payments, analytics, and compliance.</p></div></article>
+                                    <article class="industry-item wow fadeInLeft" data-wow-delay=".3s"><span class="industry-icon"><i class="fa-solid fa-cart-shopping"></i></span><div><h3>Retail & Commerce</h3><p>Connected, intelligent buying experiences.</p></div></article>
+                                    <article class="industry-item wow fadeInLeft" data-wow-delay=".4s"><span class="industry-icon"><i class="fa-solid fa-gears"></i></span><div><h3>Manufacturing</h3><p>Smart operations, IoT, and automation.</p></div></article>
+                                </div>
+                                <div class="industries-center wow zoomIn" data-wow-delay=".2s">
+                                    <div class="industries-center-image">
+                                        <img src="{{ asset('FrontendAssets/img/services/data-analytics.png') }}" alt="Technology solutions across industries">
+                                        <div class="industries-center-label"><h3>Industry Intelligence</h3><span>Strategy &bull; Technology &bull; Growth</span></div>
                                     </div>
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="project-box-items-2 style-auto design-choose-item-2">
-                                        <div class="thumb">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-02.jpg')}}" alt="img">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-02.jpg')}}" alt="img">
-                                            <a href="project-details.html" class="arrow-icon">
-                                                <i class="fa-solid fa-arrow-up-right"></i>
-                                            </a>
-                                            <div class="content-items">
-                                                <div class="content">
-                                                    <h3 class="title">
-                                                        <a href="project-details.html">Creative Campaign</a>
-                                                    </h3>
-                                                    <div class="tag-items">
-                                                        <a href="project.html">Consulting</a>
-                                                        <a href="project.html">Business</a>
-                                                    </div>
-                                                </div>
-                                                <span class="year-text">[ 2025 ]</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="project-box-items-2 design-choose-item-1">
-                                        <div class="thumb">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-03.jpg')}}" alt="img">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-03.jpg')}}" alt="img">
-                                            <a href="project-details.html" class="arrow-icon">
-                                                <i class="fa-solid fa-arrow-up-right"></i>
-                                            </a>
-                                            <div class="content-items">
-                                                <div class="content">
-                                                    <h3 class="title">
-                                                        <a href="project-details.html">Product Innovatio</a>
-                                                    </h3>
-                                                    <div class="tag-items">
-                                                        <a href="project.html">Consulting</a>
-                                                        <a href="project.html">Business</a>
-                                                    </div>
-                                                </div>
-                                                <span class="year-text">[ 2025 ]</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="project-box-items-2 style-auto design-choose-item-2">
-                                        <div class="thumb">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-04.jpg')}}" alt="img">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-04.jpg')}}" alt="img">
-                                            <a href="project-details.html" class="arrow-icon">
-                                                <i class="fa-solid fa-arrow-up-right"></i>
-                                            </a>
-                                            <div class="content-items">
-                                                <div class="content">
-                                                    <h3 class="title">
-                                                        <a href="project-details.html">Brand Strategy </a>
-                                                    </h3>
-                                                    <div class="tag-items">
-                                                        <a href="project.html">Consulting</a>
-                                                        <a href="project.html">Business</a>
-                                                    </div>
-                                                </div>
-                                                <span class="year-text">[ 2025 ]</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="project-box-items-2 design-choose-item-1">
-                                        <div class="thumb">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-05.jpg')}}" alt="img">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-05.jpg')}}" alt="img">
-                                            <a href="project-details.html" class="arrow-icon">
-                                                <i class="fa-solid fa-arrow-up-right"></i>
-                                            </a>
-                                            <div class="content-items">
-                                                <div class="content">
-                                                    <h3 class="title">
-                                                        <a href="project-details.html">Product Innovatio</a>
-                                                    </h3>
-                                                    <div class="tag-items">
-                                                        <a href="project.html">Consulting</a>
-                                                        <a href="project.html">Business</a>
-                                                    </div>
-                                                </div>
-                                                <span class="year-text">[ 2025 ]</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6">
-                                    <div class="project-box-items-2 style-auto design-choose-item-2">
-                                        <div class="thumb">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-06.jpg')}}" alt="img">
-                                            <img src="{{ asset('FrontendAssets/img/home-2/projecr-06.jpg')}}" alt="img">
-                                            <a href="project-details.html" class="arrow-icon">
-                                                <i class="fa-solid fa-arrow-up-right"></i>
-                                            </a>
-                                            <div class="content-items">
-                                                <div class="content">
-                                                    <h3 class="title">
-                                                        <a href="project-details.html">Brand Strategy </a>
-                                                    </h3>
-                                                    <div class="tag-items">
-                                                        <a href="project.html">Consulting</a>
-                                                        <a href="project.html">Business</a>
-                                                    </div>
-                                                </div>
-                                                <span class="year-text">[ 2025 ]</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="industry-list industry-list-right">
+                                    <article class="industry-item wow fadeInRight" data-wow-delay=".1s"><span class="industry-icon"><i class="fa-solid fa-graduation-cap"></i></span><div><h3>Education</h3><p>Engaging and connected learning platforms.</p></div></article>
+                                    <article class="industry-item wow fadeInRight" data-wow-delay=".2s"><span class="industry-icon"><i class="fa-solid fa-truck-fast"></i></span><div><h3>Logistics</h3><p>Tracking, fleet intelligence, and optimization.</p></div></article>
+                                    <article class="industry-item wow fadeInRight" data-wow-delay=".3s"><span class="industry-icon"><i class="fa-solid fa-house-signal"></i></span><div><h3>Real Estate</h3><p>Digital properties and smart buildings.</p></div></article>
+                                    <article class="industry-item wow fadeInRight" data-wow-delay=".4s"><span class="industry-icon"><i class="fa-solid fa-tower-broadcast"></i></span><div><h3>Media & Telecom</h3><p>Scalable content and subscriber platforms.</p></div></article>
                                 </div>
                             </div>
                         </div>

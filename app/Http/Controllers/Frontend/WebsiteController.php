@@ -69,6 +69,7 @@ class WebsiteController extends Controller
 			'iot-development' => 'FrontendAssets/img/services/iot-development.png',
 			'software-testing' => 'FrontendAssets/img/services/software-testing.png',
 			'web-design' => 'FrontendAssets/img/services/web-design.png',
+			'data-analytics' => 'FrontendAssets/img/services/data-analytics.png',
 		];
 
 		$items = [
@@ -87,8 +88,9 @@ class WebsiteController extends Controller
 			['iot-development','IOT DEVELOPMENT','Empowering your business with smart connected IoT solutions.','Connected devices, dashboards, and intelligent workflows that turn real-world data into timely action.'],
 			['software-testing','SOFTWARE TESTING','Ensuring flawless performance with comprehensive testing solutions.','Functional, automation, performance, and security testing that protects quality throughout the product lifecycle.'],
 			['web-design','WEB DESIGN','Crafting visually stunning websites that elevate your online presence.','Strategic visual systems and conversion-focused web experiences that make your brand memorable.'],
+			['data-analytics','DATA ANALYTICS','Turn complex data into clear, actionable business insights.','We transform raw data into meaningful dashboards, reports, and predictive insights that support smarter, faster decisions.'],
 		];
-		$icons = ['mobile-screen-button','laptop-code','brain','pen-nib','chart-line','palette','compass-drafting','people-group','link','cart-shopping','arrows-rotate','microchip','wifi','shield-halved','wand-magic-sparkles'];
+		$icons = ['mobile-screen-button','laptop-code','brain','pen-nib','chart-line','palette','compass-drafting','people-group','link','cart-shopping','arrows-rotate','microchip','wifi','shield-halved','wand-magic-sparkles','chart-pie'];
 		return collect($items)->values()->map(function ($item, $index) use ($icons, $serviceImages) {
 			$slug = $item[0];
 			return ['slug'=>$slug, 'title'=>$item[1], 'short'=>$item[2], 'description'=>$item[3], 'image'=>$serviceImages[$slug] ?? 'FrontendAssets/img/services/mobileapp.png', 'number'=>str_pad($index+1,2,'0',STR_PAD_LEFT), 'icon'=>$icons[$index]];
