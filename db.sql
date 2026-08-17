@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 13, 2026 at 01:07 PM
+-- Generation Time: Aug 17, 2026 at 08:08 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.2.28
 
@@ -125,7 +125,18 @@ INSERT INTO `contact_submissions` (`id`, `fullname`, `phone`, `email`, `subject`
 (2, 'Rhonda Hogan', '+1 (702) 563-8903', 'poxuz@mailinator.com', 'Web App Development', 'Consequatur Nostrum', NULL, 'Pakistan', '2026-08-07 08:06:52', '2026-08-07 08:06:52'),
 (3, 'Iola Banks', '+1 (511) 174-4553', 'zedovi@mailinator.com', 'AI/ML Development', 'Rerum et et voluptat', NULL, 'United States', '2026-08-07 08:12:02', '2026-08-07 08:12:02'),
 (4, 'Suki York', '+1 (154) 282-2561', 'wymu@mailinator.com', 'Web App Development', 'Obcaecati et ut volu', NULL, 'Denmark', '2026-08-07 08:43:47', '2026-08-07 08:43:47'),
-(6, 'Iola Banks', '+1 (511) 174-4553', 'zedovi@mailinator.com', 'AI/ML Development', 'Rerum et et voluptat', NULL, 'Denmark', '2026-08-07 08:12:02', '2026-08-07 08:12:02');
+(6, 'Iola Banks', '+1 (511) 174-4553', 'zedovi@mailinator.com', 'AI/ML Development', 'Rerum et et voluptat', NULL, 'Denmark', '2026-08-07 08:12:02', '2026-08-07 08:12:02'),
+(7, 'Lois Mcclure', '+1 (478) 104-3943', 'kygi@mailinator.com', 'Mobile App Development', 'Non odio ducimus ul', '::1', 'Unknown', '2026-08-13 09:05:55', '2026-08-13 09:05:55'),
+(9, 'Kaseem Carver', '+1 (681) 657-9905', 'tirul@mailinator.com', 'AI/ML Development', 'Magni sit ipsum quo', '::1', 'Unknown', '2026-08-13 09:06:09', '2026-08-13 09:06:09'),
+(10, 'Nolan Callahan', '+1 (381) 773-5485', 'Syedsabeer.office@gmail.com', 'Mobile App Development', 'Qui autem et aut dol', '::1', 'Unknown', '2026-08-13 09:10:02', '2026-08-13 09:10:02'),
+(11, 'Sierra Burns', '+1 (894) 204-2064', 'syedsabeer6198@gmail.com', 'Mobile App Development', 'Omnis incididunt nul', '::1', 'Unknown', '2026-08-13 09:13:34', '2026-08-13 09:13:34'),
+(12, 'Jelani Edwards', '+1 (493) 181-1164', 'syedsabeer6198@gmail.com', 'Web App Development', 'Officia similique as', '::1', 'Unknown', '2026-08-13 09:14:12', '2026-08-13 09:14:12'),
+(13, 'Nayda Howard', '+1 (832) 936-8588', 'syedsabeer6198@gmail.com', 'Mobile App Development', 'Consectetur id quis', '::1', 'Unknown', '2026-08-13 09:15:25', '2026-08-13 09:15:25'),
+(14, 'Callum Cantrell', '+1 (309) 802-9598', 'syedsabeer6198@gmail.com', 'Mobile App Development', 'Doloribus deserunt m', '::1', 'Unknown', '2026-08-13 09:16:30', '2026-08-13 09:16:30'),
+(15, 'Jocelyn Mullen', '+1 (407) 294-7647', 'syedsabeer6198@gmail.com', 'AI/ML Development', 'Quis alias aliqua R', '::1', 'Unknown', '2026-08-13 09:17:50', '2026-08-13 09:17:50'),
+(16, 'Hilary Collins', '+1 (434) 173-9409', 'syedsabeer6198@gmail.com', 'AI/ML Development', 'Sed recusandae Qui', '::1', 'Unknown', '2026-08-13 09:18:54', '2026-08-13 09:18:54'),
+(17, 'Genevieve Bray', '+1 (909) 626-4604', 'info@avrioglobal.io', 'Mobile App Development', 'Hello Sir', '::1', 'Unknown', '2026-08-13 09:20:37', '2026-08-13 09:20:37'),
+(18, 'Ulric Castaneda', '+1 (798) 417-8051', 'info@avrioglobal.io', 'AI/ML Development', 'Aspernatur rerum in', '::1', 'Unknown', '2026-08-13 09:24:32', '2026-08-13 09:24:32');
 
 -- --------------------------------------------------------
 
@@ -1113,7 +1124,7 @@ ALTER TABLE `company_settings`
 -- AUTO_INCREMENT for table `contact_submissions`
 --
 ALTER TABLE `contact_submissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `countries`
