@@ -1,8 +1,8 @@
 @extends('layouts.frontend.master')
 
 @section('title', 'About Avrio Global | Software Development Company in Ontario, Canada')
-@section('meta_description', 'Avrio Global Inc. is a software development company based in Ontario, Canada, building secure, scalable digital products for ambitious businesses since 2020.')
-@section('meta_keywords', 'about avrio global, software development company canada, software company ontario')
+@section('meta_description', 'Avrio Global Inc. is a software development company based in Ontario, Canada, building secure, scalable digital products — including fintech, banking, and insurance software — for ambitious businesses since 2020.')
+@section('meta_keywords', 'about avrio global, software development company canada, software company ontario, fintech software development company, banking software solutions, insurance software solutions')
 
 @push('schema')
 <script type="application/ld+json">

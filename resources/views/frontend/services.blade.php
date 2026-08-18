@@ -1,8 +1,8 @@
 @extends('layouts.frontend.master')
 
 @section('title', 'IT & Software Development Services | Avrio Global Inc.')
-@section('meta_description', 'Explore Avrio Global\'s full range of software development services — mobile app development, web development, AI/ML, UI/UX design, digital marketing, staff augmentation, and more.')
-@section('meta_keywords', 'software development services, it services company, mobile app development, web app development, ai ml development, digital marketing services')
+@section('meta_description', 'Explore Avrio Global\'s full range of software development services — mobile app development, web development, AI/ML, fintech, banking, and insurance software, UI/UX design, digital marketing, staff augmentation, and more.')
+@section('meta_keywords', 'software development services, it services company, mobile app development, web app development, ai ml development, fintech software development, banking software solutions, insurance software solutions, digital marketing services')
 
 @push('schema')
 <script type="application/ld+json">

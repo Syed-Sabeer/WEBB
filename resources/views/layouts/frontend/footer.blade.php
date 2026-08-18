@@ -1,7 +1,7 @@
 <!-- Footer Section Start -->
 <footer class="footer-section-4">
     <div class="section-animation-shape1-1 animation-infinite-test gt-line-shape-animation animation-infinite"
-        style="background-image: url('assets/img/home-4/footer-line.png');"></div>
+        style="background-image: url('{{ asset('FrontendAssets/img/home-4/footer-line.png') }}');"></div>
     <div class="container">
         <div class="footer-top-wrapper-4">
             <div class="footer-left wow fadeInUp" data-wow-delay=".3s">

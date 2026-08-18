@@ -187,7 +187,7 @@ CANADA
 
                         <div class="logo">
                             <a href="{{ url('/') }}">
-                                <img style="width: 60px; height: auto;" src="{{ asset('FrontendAssets/img/logo/avrio-logo.png')}}" alt="logo">
+                                <img style="width: 60px; height: auto;" src="{{ asset('FrontendAssets/img/white-file/avrio-logo.png')}}" alt="logo">
                             </a>
                         </div>
 

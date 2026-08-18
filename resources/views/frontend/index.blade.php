@@ -1,8 +1,8 @@
 @extends('layouts.frontend.master')
 
 @section('title', 'Avrio Global Inc. | Custom Software Development Company')
-@section('meta_description', 'Avrio Global Inc. is a custom software development company building mobile apps, web applications, AI/ML solutions, and digital products for ambitious businesses in Canada and worldwide.')
-@section('meta_keywords', 'software development company, custom software development company Canada, mobile app development company, web app development company, AI ML development company, digital marketing agency')
+@section('meta_description', 'Avrio Global Inc. is a custom software development company building mobile apps, web applications, AI/ML solutions, and fintech, banking, and insurance software for ambitious businesses in Canada and worldwide.')
+@section('meta_keywords', 'software development company, custom software development company Canada, mobile app development company, web app development company, AI ML development company, fintech software development company, banking software solutions, insurance software solutions, financial technology solutions, digital marketing agency')
 @section('og_type', 'website')
 
 @push('schema')
@@ -890,7 +890,7 @@
 
 
                     <!-- Testimonial Section Start -->
-                     <section class="testimonial-section-about section-padding tp-project-5-2-area bg-cover" style="background-image: url('assets/img/inner-page/testimonial-bg2.jpg');">
+                     <section class="testimonial-section-about section-padding tp-project-5-2-area bg-cover" >
                         <div class="container">
                             <div class="section-title text-center tp-project-5-2-title">
                                 <span class="sub-title tz-sub-tilte tz-sub-anim tx-subTitle">

@@ -5,8 +5,8 @@ return [
     'domain' => 'https://avrioglobal.io',
 
     'default_title' => 'Avrio Global Inc. | Custom Software Development Company',
-    'default_description' => 'Avrio Global Inc. is a custom software development company building mobile apps, web applications, AI/ML solutions, and digital products for ambitious businesses worldwide.',
-    'default_keywords' => 'software development company, custom software development, mobile app development, web app development, AI ML development, digital marketing agency',
+    'default_description' => 'Avrio Global Inc. is a custom software development company building mobile apps, web applications, AI/ML solutions, and fintech, banking, and insurance software for ambitious businesses worldwide.',
+    'default_keywords' => 'software development company, custom software development, mobile app development, web app development, AI ML development, fintech software development, financial technology solutions, banking software solutions, insurance software solutions, digital marketing agency',
 
     'logo' => 'FrontendAssets/img/white-file/avrio-logo.png',
 
