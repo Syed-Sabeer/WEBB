@@ -16,6 +16,7 @@ public function index(Request $request)
     $query = Blog::where('visibility', 1);
 
 
+
     if ($request->has('search')) {
         $search = $request->input('search');
         $query->where('title', 'like', "%{$search}%")

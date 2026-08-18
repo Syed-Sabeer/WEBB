@@ -842,6 +842,7 @@
                                                         </p>
                                                     </div>
                                                 </li>
+                                                
                                                 <li class="wow fadeInUp" data-wow-delay=".5s">
                                                     <div class="icon">
                                                         <img src="{{ asset('FrontendAssets/img/home-3/icon6.svg')}}" alt="img">
