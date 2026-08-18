@@ -1,5 +1,35 @@
 @extends('layouts.frontend.master')
 
+@section('title', 'IT & Software Development Services | Avrio Global Inc.')
+@section('meta_description', 'Explore Avrio Global\'s full range of software development services — mobile app development, web development, AI/ML, UI/UX design, digital marketing, staff augmentation, and more.')
+@section('meta_keywords', 'software development services, it services company, mobile app development, web app development, ai ml development, digital marketing services')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => url('/')],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Services', 'item' => url('/service')],
+    ],
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'ItemList',
+    'itemListElement' => collect($services)->values()->map(function ($service, $i) {
+        return [
+            '@type' => 'ListItem',
+            'position' => $i + 1,
+            'name' => $service['title'],
+            'url' => url('/service-detail/'.$service['slug']),
+        ];
+    })->all(),
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+@endpush
 
 @section('css')
 {{-- <style>

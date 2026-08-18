@@ -121,7 +121,7 @@
                         <div class="contact-details">
                             <span class="sub-info">Phone</span>
                             <p>
-                                <a href="tel:+17866985569">+1 (786) 698-5569</a>
+                                <a href="tel:+15485732018">+1 (548) 573-2018</a>
                             </p>
                         </div>
                         <div class="contact-details">
@@ -217,7 +217,7 @@ CANADA
                                 <div class="contact-details">
                                     <span class="sub-info">Phone</span>
                                     <p>
-                                        <a href="tel:+17866985569">+1 (786) 698-5569</a>
+                                        <a href="tel:+15485732018">+1 (548) 573-2018</a>
                                     </p>
                                 </div>
                                 <div class="contact-details">

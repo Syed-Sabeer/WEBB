@@ -1,5 +1,21 @@
 @extends('layouts.frontend.master')
 
+@section('title', 'Software Development Blog & Insights | Avrio Global Inc.')
+@section('meta_description', 'Software, product, and growth insights from Avrio Global Inc. — practical guidance on custom software development, mobile apps, AI, and digital strategy.')
+@section('meta_keywords', 'software development blog, software insights, custom software development articles')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => url('/')],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Blog', 'item' => url('/blog')],
+    ],
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+@endpush
 
 @section('css')
 

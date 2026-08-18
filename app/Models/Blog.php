@@ -18,6 +18,9 @@ class Blog extends Model
         'tags',
         'min_read',
         'visibility',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
     ];
 
     protected $casts = [

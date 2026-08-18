@@ -1,5 +1,20 @@
 @extends('layouts.frontend.master')
 
+@section('title', 'Avrio Global Inc. | Custom Software Development Company')
+@section('meta_description', 'Avrio Global Inc. is a custom software development company building mobile apps, web applications, AI/ML solutions, and digital products for ambitious businesses in Canada and worldwide.')
+@section('meta_keywords', 'software development company, custom software development company Canada, mobile app development company, web app development company, AI ML development company, digital marketing agency')
+@section('og_type', 'website')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'WebSite',
+    'name' => config('seo.site_name'),
+    'url' => config('seo.domain'),
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+@endpush
 
 @section('css')
 <style>
@@ -78,9 +93,9 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="hero-image">
-                                        <img src="{{ asset('FrontendAssets/img/home-4/hero-image.png')}}" alt="img" class="float-bob-y">
+                                        <img src="{{ asset('FrontendAssets/img/home-4/hero-image.png')}}" alt="Avrio Global custom software development illustration" class="float-bob-y">
                                         <div class="bg-circle">
-                                            <img src="{{ asset('FrontendAssets/img/home-4/bg-circle.png')}}" alt="img">
+                                            <img src="{{ asset('FrontendAssets/img/home-4/bg-circle.png')}}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -226,7 +241,7 @@
                                             <div class="about-circle">
                                                 <img src="{{ asset('FrontendAssets/img/home-1/about-circle.png')}}" alt="img">
                                             </div>
-                                            <img src="{{ asset('FrontendAssets/img/home-1/about-image.png')}}" alt="img">
+                                            <img src="{{ asset('FrontendAssets/img/home-1/about-image.png')}}" alt="About Avrio Global software development company">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -266,7 +281,7 @@
                                                     </p>
                                                 </div>
                                                 <div class="about-small wow fadeInUp" data-wow-delay=".5s">
-                                                    <img src="{{ asset('FrontendAssets/img/home-1/about-small.jpg')}}" alt="img">
+                                                    <img src="{{ asset('FrontendAssets/img/home-1/about-small.jpg')}}" alt="Avrio Global software engineers at work">
                                                 </div>
                                             </div>
                                         </div>
@@ -334,8 +349,8 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/services/website-app-development.png')}}" alt="img">
-                                                <img src="{{ asset('FrontendAssets/img/services/website-app-development.png')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/services/website-app-development.png')}}" alt="Web app development services">
+                                                <img src="{{ asset('FrontendAssets/img/services/website-app-development.png')}}" alt="Web app development services">
                                             </div>
                                         </div>
                                     </div>
@@ -383,8 +398,8 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/services/mobile-app-development.png')}}" alt="img">
-                                                <img src="{{ asset('FrontendAssets/img/services/mobile-app-development.png')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/services/mobile-app-development.png')}}" alt="Mobile app development services">
+                                                <img src="{{ asset('FrontendAssets/img/services/mobile-app-development.png')}}" alt="Mobile app development services">
                                             </div>
                                         </div>
                                     </div>
@@ -432,8 +447,8 @@
                                         </div>
                                         <div class="col-xl-6 col-lg-6">
                                             <div class="service-thumb">
-                                                <img src="{{ asset('FrontendAssets/img/services/ai-ml-development.png')}}" alt="img">
-                                                <img src="{{ asset('FrontendAssets/img/services/ai-ml-development.png')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/services/ai-ml-development.png')}}" alt="AI and machine learning development services">
+                                                <img src="{{ asset('FrontendAssets/img/services/ai-ml-development.png')}}" alt="AI and machine learning development services">
                                             </div>
                                         </div>
                                     </div>
@@ -520,7 +535,7 @@
                                     <div class="col-lg-6">
                                         <div class="about-left-items">
                                             <div class="about-thumb fix wow fadeInUp" data-wow-delay=".3s">
-                                                <img data-speed=".8" src="{{ asset('FrontendAssets/img/home-3/choose-us.jpg')}}" alt="img">
+                                                <img data-speed=".8" src="{{ asset('FrontendAssets/img/home-3/choose-us.jpg')}}" alt="Why choose Avrio Global for software development">
                                             </div>
                                             <div class="about-bottom-content wow fadeInUp" data-wow-delay=".5s">
                                                 <div class="about-counter">
@@ -599,7 +614,7 @@
                                                 </div>
                                                 <div class="col-md-8 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
                                                     <div class="about-small-image">
-                                                        <img src="{{ asset('FrontendAssets/img/home-3/about-small.jpg')}}" alt="img">
+                                                        <img src="{{ asset('FrontendAssets/img/home-3/about-small.jpg')}}" alt="Avrio Global software development team">
                                                     </div>
                                                 </div>
                                             </div>
@@ -862,7 +877,7 @@
                                     </div>
                                     <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                         <div class="choose-us-image fix">
-                                            <img data-speed=".8" src="{{ asset('FrontendAssets/img/home-3/choose-us-2.jpg')}}" alt="img">
+                                            <img data-speed=".8" src="{{ asset('FrontendAssets/img/home-3/choose-us-2.jpg')}}" alt="AI solutions built by Avrio Global">
                                             <div class="grap-shape">
                                                 <img src="{{ asset('FrontendAssets/img/home-3/grap.png')}}" alt="img">
                                             </div>

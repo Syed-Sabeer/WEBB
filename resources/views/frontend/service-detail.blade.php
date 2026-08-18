@@ -1,5 +1,38 @@
 @extends('layouts.frontend.master')
 
+@section('title', $service['meta_title'] ?? ($service['title'].' | Avrio Global Inc.'))
+@section('meta_description', $service['meta_description'] ?? $service['description'])
+@section('meta_keywords', $service['meta_keywords'] ?? '')
+@section('og_image', asset($service['image']))
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'Service',
+    'name' => $service['title'],
+    'description' => $service['description'],
+    'provider' => [
+        '@type' => 'Organization',
+        'name' => config('seo.site_name'),
+        'url' => config('seo.domain'),
+    ],
+    'areaServed' => 'Worldwide',
+    'url' => url('/service-detail/'.$service['slug']),
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => url('/')],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Services', 'item' => url('/service')],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => $service['title'], 'item' => url('/service-detail/'.$service['slug'])],
+    ],
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+@endpush
 
 @section('css')
 <style>
@@ -26,8 +59,8 @@
                         </div>
                         <div class="title-area">
                             <div class="container">
-                                <h1 class="text-white rr_title_anim"><span>{{ $service['title'] }}</span> {{ $service['short'] }}
-                                </h1>
+                                <div class="text-white rr_title_anim"><span>{{ $service['title'] }}</span> {{ $service['short'] }}
+                                </div>
                             </div>
                         </div>
                         <div class="container container-1680">

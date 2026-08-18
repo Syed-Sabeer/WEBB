@@ -1,5 +1,42 @@
 @extends('layouts.frontend.master')
 
+@section('title', $blog->meta_title ?: ($blog->title.' | Avrio Global Inc.'))
+@section('meta_description', $blog->meta_description ?: \Illuminate\Support\Str::limit(strip_tags($blog->content), 155))
+@section('meta_keywords', $blog->meta_keywords ?: $blog->tags)
+@section('og_type', 'article')
+@section('og_image', $blog->image ? asset('storage/' . $blog->image) : asset(config('seo.logo')))
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'BlogPosting',
+    'headline' => $blog->title,
+    'description' => $blog->meta_description ?: \Illuminate\Support\Str::limit(strip_tags($blog->content), 155),
+    'image' => $blog->image ? asset('storage/' . $blog->image) : asset(config('seo.logo')),
+    'datePublished' => optional($blog->created_at)->toAtomString(),
+    'dateModified' => optional($blog->updated_at)->toAtomString(),
+    'author' => ['@type' => 'Organization', 'name' => config('seo.site_name')],
+    'publisher' => [
+        '@type' => 'Organization',
+        'name' => config('seo.site_name'),
+        'logo' => ['@type' => 'ImageObject', 'url' => asset(config('seo.logo'))],
+    ],
+    'mainEntityOfPage' => url()->current(),
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => url('/')],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'Blog', 'item' => url('/blog')],
+        ['@type' => 'ListItem', 'position' => 3, 'name' => $blog->title, 'item' => url()->current()],
+    ],
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+@endpush
 
 @section('css')
 <style>
@@ -33,10 +70,10 @@
     $remaining = implode(' ', array_slice($words, 2));
 @endphp
 
-<h2 class="about-page-heading-title">
+<h1 class="about-page-heading-title">
     <span>{{ $firstTwo }}</span>
     {{ $remaining }}
-</h2>
+</h1>
                                 </div>
                                 <div class="breadcrumb-items">
                                     <ul>
@@ -47,9 +84,9 @@
     (&copy;2020 — {{ date('Y') }})
 </li>
                                     </ul>
-                                    <h1 class="title wa_title_spilt_1">
+                                    <h2 class="title wa_title_spilt_1">
                                      Avrio Insights
-                                    </h1>
+                                    </h2>
                                 </div>
                             </div>
                         </div>

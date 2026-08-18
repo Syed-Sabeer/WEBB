@@ -42,8 +42,8 @@
                             </div>
                             <div class="content">
                                 <span>Hong Kong Office</span>
-                                <p style="color:#2a2a2a !important; font-size:15px;">Unit 1406B, Belgian Bank Building, <br class="d-block"> Nathan Road, Mong Kok,
-                                    Kowloon,<br class="d-block"> HONG KONG</p>
+                                <p style="color:#2a2a2a !important; font-size:15px;">Unit 1406B, Belgian Bank Building, <br class="d-block"> Nathan Road,
+MongKok, Kowloon,<br class="d-block"> HONG KONG</p>
                             </div>
 
                               <div class="content">
@@ -73,8 +73,8 @@
                         <div class="footer-contact">
                             <ul>
                                 <li>
-                                    <a href="tel:+17866985569" style="color:#2a2a2a !important;"><i class="fa-solid fa-phone"></i>
-                                        +1 786 698 5569</a>
+                                    <a href="tel:+15485732018" style="color:#2a2a2a !important;"><i class="fa-solid fa-phone"></i>
+                                        +1 548 573 2018</a>
                                 </li>
                                 <li>
                                     <a href="mailto:info@avrioglobal.io" style="color:#2a2a2a !important;"><i class="fa-solid fa-envelope"></i>info@avrioglobal.io</a>

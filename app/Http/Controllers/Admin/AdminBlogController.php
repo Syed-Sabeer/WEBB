@@ -59,9 +59,12 @@ class AdminBlogController extends Controller
                 'category' => 'nullable|string|max:255',
                 'min_read' => 'nullable|string|max:255',
                 'visibility' => 'nullable|integer',
+                'meta_title' => 'nullable|string|max:255',
+                'meta_description' => 'nullable|string|max:320',
+                'meta_keywords' => 'nullable|string|max:255',
             ]);
 
-            $validatedData = $request->only(['title', 'slug', 'content',  'tags', 'min_read', 'visibility', 'category']);
+            $validatedData = $request->only(['title', 'slug', 'content',  'tags', 'min_read', 'visibility', 'category', 'meta_title', 'meta_description', 'meta_keywords']);
 
             // Handle image upload
             if ($request->hasFile('image') && $request->file('image')->isValid()) {
@@ -83,6 +86,9 @@ class AdminBlogController extends Controller
                 'category' => $validatedData['category'] ?? null,
                 'min_read' => $validatedData['min_read'] ?? null,
                 'visibility' => $validatedData['visibility'] ?? 1,
+                'meta_title' => $validatedData['meta_title'] ?? null,
+                'meta_description' => $validatedData['meta_description'] ?? null,
+                'meta_keywords' => $validatedData['meta_keywords'] ?? null,
             ]);
 
             Log::info('Blog created successfully:', ['id' => $blog->id]);
@@ -113,6 +119,9 @@ class AdminBlogController extends Controller
                 'category' => 'nullable|string|max:255',
                 'min_read' => 'nullable|string|max:255',
                 'visibility' => 'nullable|integer',
+                'meta_title' => 'nullable|string|max:255',
+                'meta_description' => 'nullable|string|max:320',
+                'meta_keywords' => 'nullable|string|max:255',
             ]);
 
             $blog = Blog::findOrFail($id);
@@ -124,6 +133,9 @@ class AdminBlogController extends Controller
                 'category' => $request->category,
                 'min_read' => $request->min_read,
                 'visibility' => $request->visibility ?? 1,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
+                'meta_keywords' => $request->meta_keywords,
             ];
 
             // Handle image upload

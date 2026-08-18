@@ -114,6 +114,22 @@
                                   <input class="form-control" name="min_read" type="text" placeholder="e.g., 5 min read" value="{{ old('min_read') }}">
                                 </div>
 
+                                <div class="col-md-12"><hr><h6>SEO</h6></div>
+
+                                <div class="col-md-12">
+                                  <label class="form-label">Meta Title <small class="text-muted">(optional; falls back to blog title)</small></label>
+                                  <input class="form-control" name="meta_title" type="text" maxlength="255" placeholder="Meta title for search engines" value="{{ old('meta_title') }}">
+                                </div>
+
+                                <div class="col-md-12">
+                                  <label class="form-label">Meta Description <small class="text-muted">(optional; falls back to auto-generated summary, ~155 chars recommended)</small></label>
+                                  <textarea class="form-control" name="meta_description" maxlength="320" rows="2" placeholder="Short summary shown in search results">{{ old('meta_description') }}</textarea>
+                                </div>
+
+                                <div class="col-md-12">
+                                  <label class="form-label">Meta Keywords <small class="text-muted">(optional, comma separated)</small></label>
+                                  <input class="form-control" name="meta_keywords" type="text" maxlength="255" placeholder="e.g. software development, mobile apps" value="{{ old('meta_keywords') }}">
+                                </div>
 
                                 <div class="col-md-6">
                                   <button class="btn btn-primary f-w-500" type="submit">Submit</button>

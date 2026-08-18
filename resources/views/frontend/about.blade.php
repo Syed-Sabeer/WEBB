@@ -1,5 +1,21 @@
 @extends('layouts.frontend.master')
 
+@section('title', 'About Avrio Global | Software Development Company in Ontario, Canada')
+@section('meta_description', 'Avrio Global Inc. is a software development company based in Ontario, Canada, building secure, scalable digital products for ambitious businesses since 2020.')
+@section('meta_keywords', 'about avrio global, software development company canada, software company ontario')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'BreadcrumbList',
+    'itemListElement' => [
+        ['@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => url('/')],
+        ['@type' => 'ListItem', 'position' => 2, 'name' => 'About', 'item' => url('/about')],
+    ],
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+@endpush
 
 @section('css')
 
@@ -38,7 +54,7 @@
                     
                     <!-- About Video Section Start -->
                     <div class="about-video-banner-about-page fix wow fadeInUp" data-wow-delay=".7s">
-                        <img data-speed=".8" src="{{ asset('FrontendAssets/img/home-2/about-video-banner.jpg')}}" alt="img">
+                        <img data-speed=".8" src="{{ asset('FrontendAssets/img/home-2/about-video-banner.jpg')}}" alt="About Avrio Global software development company">
                         <div class="video-circle">
                                 <a href="https://www.youtube.com/watch?v=Cn4G2lZ_g2I" class="video-btn ripple video-popup">
                                     <i class="fa-solid fa-play"></i>
@@ -59,7 +75,7 @@
                             <div class="about-wrapper-2 about-page-style-3">
                                 <div class="section-title-area">
                                     <div class="about-info wow fadeInUp" data-wow-delay=".3s">
-                                        <img src="{{ asset('FrontendAssets/img/home-2/about-info.png')}}" alt="img">
+                                        <img src="{{ asset('FrontendAssets/img/home-2/about-info.png')}}" alt="Avrio Global satisfied members">
                                         <p>
                                             <b>Join 5,000+ </b>
                                             satisfied members
@@ -267,7 +283,7 @@
                                 <div class="row g-4">
                                     <div class="col-xl-5 col-lg-6">
                                         <div class="thumb wow fadeInUp" data-wow-delay=".3s">
-                                            <img src="{{ asset('FrontendAssets/img/inner-page/choose-us.jpg')}}" alt="img">
+                                            <img src="{{ asset('FrontendAssets/img/inner-page/choose-us.jpg')}}" alt="Why choose Avrio Global">
                                         </div>
                                     </div>
                                     <div class="col-xl-7 col-lg-6">
@@ -296,7 +312,7 @@
                                                 </p>
                                             </div>
                                             <div class="about-vide-bg wow fadeInUp" data-wow-delay=".7s">
-                                                <img src="{{ asset('FrontendAssets/img/home-2/choose-us-small.jpg')}}" alt="img">
+                                                <img src="{{ asset('FrontendAssets/img/home-2/choose-us-small.jpg')}}" alt="Avrio Global development team">
                                             </div>
                                         </div>
                                         </div>
@@ -339,8 +355,8 @@
 
                                 <div class="col-lg-6 col-md-6">
                                     <div class="team-image-items-5 design-choose-item-1">
-                                        <img src="{{ asset('FrontendAssets/img/inner-page/Mazhar.png')}}" alt="img">
-                                        <img src="{{ asset('FrontendAssets/img/inner-page/Mazhar.png')}}" alt="img">
+                                        <img src="{{ asset('FrontendAssets/img/inner-page/Mazhar.png')}}" alt="Mazhar — Avrio Global team">
+                                        <img src="{{ asset('FrontendAssets/img/inner-page/Mazhar.png')}}" alt="Mazhar — Avrio Global team">
                                         <div class="team-content">
                                             <div class="content">
                                                  <p>
@@ -368,8 +384,8 @@
                              
                                    <div class="col-lg-6 col-md-6">
                                     <div class="team-image-items-5 design-choose-item-2">
-                                        <img src="{{ asset('FrontendAssets/img/inner-page/Mutahir.png')}}" alt="img">
-                                        <img src="{{ asset('FrontendAssets/img/inner-page/Mutahir.png')}}" alt="img">
+                                        <img src="{{ asset('FrontendAssets/img/inner-page/Mutahir.png')}}" alt="Mutahir — Avrio Global team">
+                                        <img src="{{ asset('FrontendAssets/img/inner-page/Mutahir.png')}}" alt="Mutahir — Avrio Global team">
                                         <div class="team-content">
                                             <div class="content">
                                                <p>

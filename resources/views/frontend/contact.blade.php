@@ -1,5 +1,39 @@
 @extends('layouts.frontend.master')
 
+@section('title', 'Contact Avrio Global Inc. | Software Development Company')
+@section('meta_description', 'Get in touch with Avrio Global Inc. Start your software project today — offices in Waterloo Canada, Hong Kong, and Karachi Pakistan.')
+@section('meta_keywords', 'contact avrio global, software development company contact, hire software developers')
+
+@push('schema')
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'ContactPage',
+    'name' => 'Contact Avrio Global Inc.',
+    'url' => url('/contact'),
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+<script type="application/ld+json">
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'Organization',
+    'name' => config('seo.site_name'),
+    'url' => config('seo.domain'),
+    'telephone' => config('seo.phone'),
+    'email' => config('seo.email'),
+    'address' => collect(config('seo.offices'))->map(function ($office) {
+        return [
+            '@type' => 'PostalAddress',
+            'streetAddress' => $office['street'],
+            'addressLocality' => $office['city'],
+            'addressRegion' => $office['region'],
+            'postalCode' => $office['postal_code'],
+            'addressCountry' => $office['country'],
+        ];
+    })->all(),
+], JSON_UNESCAPED_SLASHES) !!}
+</script>
+@endpush
 
 @section('css')
 <style>.contact-submit-loading{opacity:.75;pointer-events:none}.contact-spinner{display:none;width:1rem;height:1rem;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:contact-spin .7s linear infinite;vertical-align:-.15em;margin-right:.45rem}@keyframes contact-spin{to{transform:rotate(360deg)}}</style>
@@ -47,7 +81,7 @@
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="contact-us-card-item">
                                             <div class="contact-image">
-                                                <img src="{{ asset('FrontendAssets/img/inner-page/contact-1.jpg') }}" alt="Canada office">
+                                                <img src="{{ asset('FrontendAssets/img/inner-page/canada.png') }}" alt="Canada office">
                                             </div>
                                             <div class="contact-content">
                                                 <h2>Canada Office</h2>
@@ -58,18 +92,18 @@
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="contact-us-card-item">
                                             <div class="contact-image">
-                                                <img src="{{ asset('FrontendAssets/img/inner-page/contact-2.jpg') }}" alt="Hong Kong office">
+                                                <img src="{{ asset('FrontendAssets/img/inner-page/hong-kong.png') }}" alt="Hong Kong office">
                                             </div>
                                             <div class="contact-content">
                                                 <h2>Hong Kong Office</h2>
-                                                <p>Unit 1406B, Belgian Bank Building, Nathan Road,<br>Mong Kok, Kowloon, Hong Kong</p>
+                                                <p>Unit 1406B, Belgian Bank Building, Nathan Road,<br>MongKok, Kowloon, HONG KONG</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-6 col-md-6">
                                         <div class="contact-us-card-item">
                                             <div class="contact-image">
-                                                <img src="{{ asset('FrontendAssets/img/inner-page/contact-3.jpg') }}" alt="Pakistan office">
+                                                <img src="{{ asset('FrontendAssets/img/inner-page/pakistan.png') }}" alt="Pakistan office">
                                             </div>
                                             <div class="contact-content">
                                                 <h2>Pakistan Office</h2>
