@@ -10,6 +10,11 @@ return [
 
     'logo' => 'FrontendAssets/img/white-file/avrio-logo.png',
 
+    // Default social share ("link preview card") image — 1200x630, the standard
+    // Open Graph ratio WhatsApp/Facebook/Twitter expect. Individual pages can
+    // override via @section('og_image', ...).
+    'og_image' => 'FrontendAssets/img/og/avrio-logo.png',
+
     'phone' => '+15485732018',
     'phone_display' => '+1 548 573 2018',
     'email' => 'info@avrioglobal.io',

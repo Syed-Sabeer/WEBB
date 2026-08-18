@@ -137,6 +137,7 @@ class WebsiteController extends Controller
 				'meta_description' => $item[5] ?? $item[3],
 				'meta_keywords' => $item[6] ?? '',
 				'image' => $serviceImages[$slug] ?? 'FrontendAssets/img/services/mobileapp.png',
+				'og_image' => file_exists(public_path("FrontendAssets/img/og/{$slug}.jpg")) ? "FrontendAssets/img/og/{$slug}.jpg" : ($serviceImages[$slug] ?? 'FrontendAssets/img/services/mobileapp.png'),
 				'number' => str_pad($index+1,2,'0',STR_PAD_LEFT),
 				'icon' => $icons[$slug] ?? 'code',
 			];

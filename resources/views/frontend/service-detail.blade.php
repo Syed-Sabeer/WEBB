@@ -3,7 +3,7 @@
 @section('title', $service['meta_title'] ?? ($service['title'].' | Avrio Global Inc.'))
 @section('meta_description', $service['meta_description'] ?? $service['description'])
 @section('meta_keywords', $service['meta_keywords'] ?? '')
-@section('og_image', asset($service['image']))
+@section('og_image', $service['og_image'] ?? $service['image'])
 
 @push('schema')
 <script type="application/ld+json">

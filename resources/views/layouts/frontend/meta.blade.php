@@ -8,9 +8,25 @@
     $seoKeywords = $seoDecode(trim($__env->yieldContent('meta_keywords'))) ?: config('seo.default_keywords');
     $seoRobots = $seoDecode(trim($__env->yieldContent('meta_robots'))) ?: 'index, follow';
     $seoCanonical = $seoDecode(trim($__env->yieldContent('canonical'))) ?: url()->current();
-    $seoImage = $seoDecode(trim($__env->yieldContent('og_image'))) ?: asset(config('seo.logo'));
+    // Normalize to the non-www host so canonical, og:url, and JSON-LD all agree —
+    // this is a hint only; pair it with a real www -> non-www redirect at the server level.
+    $seoCanonical = preg_replace('#^(https?://)www\.#i', '$1', $seoCanonical);
     $seoType = $seoDecode(trim($__env->yieldContent('og_type'))) ?: 'website';
     $seoLogo = asset(config('seo.logo'));
+
+    // og_image sections hold a path relative to public/ (not yet wrapped in asset())
+    // so we can read the real file on disk and report its true width/height/type —
+    // WhatsApp/Facebook use these to render the preview without fetching the image first.
+    $seoImageRelative = $seoDecode(trim($__env->yieldContent('og_image'))) ?: config('seo.og_image');
+    $seoImage = asset($seoImageRelative);
+    $seoImageWidth = 1200;
+    $seoImageHeight = 630;
+    $seoImageMime = 'image/jpeg';
+    $seoImagePath = public_path($seoImageRelative);
+    if (is_file($seoImagePath) && ($seoImageInfo = @getimagesize($seoImagePath))) {
+        [$seoImageWidth, $seoImageHeight, $seoImageTypeConst] = $seoImageInfo;
+        $seoImageMime = image_type_to_mime_type($seoImageTypeConst);
+    }
 @endphp
 <!-- ========== Meta Tags ========== -->
 <meta charset="UTF-8">
@@ -25,7 +41,7 @@
 <title>{{ $seoTitle }}</title>
 
 <!-- ======== Canonical ============ -->
-<link rel="canonical" href="{{ $seoCanonical }}">
+<link rel="canonical" href="{{ str_replace('https://www.', 'https://', $seoCanonical ?? url()->current()) }}">
 
 <!-- ======== Favicon ============ -->
 <link rel="icon" type="image/png" href="{{ $seoLogo }}">
@@ -38,6 +54,11 @@
 <meta property="og:description" content="{{ $seoDescription }}">
 <meta property="og:url" content="{{ $seoCanonical }}">
 <meta property="og:image" content="{{ $seoImage }}">
+<meta property="og:image:secure_url" content="{{ $seoImage }}">
+<meta property="og:image:type" content="{{ $seoImageMime }}">
+<meta property="og:image:width" content="{{ $seoImageWidth }}">
+<meta property="og:image:height" content="{{ $seoImageHeight }}">
+<meta property="og:image:alt" content="{{ $seoTitle }}">
 <meta property="og:locale" content="en_US">
 
 <!-- ======== Twitter Card ============ -->
@@ -45,6 +66,7 @@
 <meta name="twitter:title" content="{{ $seoTitle }}">
 <meta name="twitter:description" content="{{ $seoDescription }}">
 <meta name="twitter:image" content="{{ $seoImage }}">
+<meta name="twitter:image:alt" content="{{ $seoTitle }}">
 
 <!-- ======== Organization Structured Data ============ -->
 <script type="application/ld+json">

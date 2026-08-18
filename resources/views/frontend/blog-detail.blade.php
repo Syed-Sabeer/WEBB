@@ -4,7 +4,7 @@
 @section('meta_description', $blog->meta_description ?: \Illuminate\Support\Str::limit(strip_tags($blog->content), 155))
 @section('meta_keywords', $blog->meta_keywords ?: $blog->tags)
 @section('og_type', 'article')
-@section('og_image', $blog->image ? asset('storage/' . $blog->image) : asset(config('seo.logo')))
+@section('og_image', $blog->image ? ('storage/' . $blog->image) : config('seo.og_image'))
 
 @push('schema')
 <script type="application/ld+json">
@@ -13,7 +13,7 @@
     '@type' => 'BlogPosting',
     'headline' => $blog->title,
     'description' => $blog->meta_description ?: \Illuminate\Support\Str::limit(strip_tags($blog->content), 155),
-    'image' => $blog->image ? asset('storage/' . $blog->image) : asset(config('seo.logo')),
+    'image' => $blog->image ? asset('storage/' . $blog->image) : asset(config('seo.og_image')),
     'datePublished' => optional($blog->created_at)->toAtomString(),
     'dateModified' => optional($blog->updated_at)->toAtomString(),
     'author' => ['@type' => 'Organization', 'name' => config('seo.site_name')],

@@ -64,8 +64,6 @@ class SitemapController extends Controller
             'Disallow: /storage/logs/',
             'Disallow: /vendor/',
             'Disallow: /.env',
-            'Disallow: /login',
-            'Disallow: /admin/login',
             '',
             'Sitemap: '.url('/sitemap.xml'),
         ];
