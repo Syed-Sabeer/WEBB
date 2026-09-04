@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\ContactSubmission;
 use App\Models\Visitor;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
@@ -59,9 +60,14 @@ class SendDailyAnalyticsReport extends Command
             ->oldest('created_at')
             ->get();
 
-        Mail::send('emails.daily-analytics-report', compact('date', 'visitors', 'locations', 'contacts'), function ($mail) use ($recipient, $date) {
+        $pdf = Pdf::loadView('reports.daily-analytics-report', compact('date', 'visitors', 'locations', 'contacts'))
+            ->setPaper('a4', 'landscape');
+        $filename = 'avrio-daily-analytics-'.$date->toDateString().'.pdf';
+
+        Mail::send('emails.daily-analytics-report', compact('date', 'visitors', 'contacts'), function ($mail) use ($recipient, $date, $pdf, $filename) {
             $mail->to($recipient)
                 ->subject('Avrio Global daily report — '.$date->format('F j, Y'));
+            $mail->attachData($pdf->output(), $filename, ['mime' => 'application/pdf']);
         });
 
         $this->info(sprintf(
