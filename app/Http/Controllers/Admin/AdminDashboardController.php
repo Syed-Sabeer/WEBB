@@ -35,7 +35,7 @@ class AdminDashboardController extends Controller
 
         $filteredVisitorTotal = (clone $visitorQuery)->count();
         $filteredContactTotal = (clone $contactQuery)->count();
-        $visitorCountries = $this->topCountries($visitorQuery, $filteredVisitorTotal);
+        $visitorLocations = $this->visitorLocationHierarchy($visitorQuery, $filteredVisitorTotal);
         $contactCountries = $this->topCountries($contactQuery, $filteredContactTotal);
 
         return view('admin.dashboard', compact(
@@ -46,8 +46,56 @@ class AdminDashboardController extends Controller
             'periodLabel',
             'filteredVisitorTotal',
             'filteredContactTotal',
-            'visitorCountries',
+            'visitorLocations',
             'contactCountries'
+        ));
+    }
+
+    public function visitorLocations(Request $request)
+    {
+        $period = in_array($request->query('period'), ['today', 'week', 'all'], true)
+            ? $request->query('period')
+            : 'all';
+        $periodLabel = ['today' => 'Today', 'week' => 'Last 7 Days', 'all' => 'All Time'][$period];
+        $visitorQuery = Visitor::query();
+
+        if ($period === 'today') {
+            $visitorQuery->whereDate('visit_date', today());
+        } elseif ($period === 'week') {
+            $visitorQuery->whereDate('visit_date', '>=', today()->subDays(6));
+        }
+
+        $total = (clone $visitorQuery)->count();
+        $nodes = $this->visitorLocationHierarchy($visitorQuery, $total);
+        $selections = [];
+        $levels = ['country' => 'Country', 'state' => 'State', 'city' => 'City'];
+
+        foreach ($levels as $parameter => $label) {
+            $value = $request->query($parameter);
+
+            if ($value === null) {
+                break;
+            }
+
+            $selectedNode = $nodes->firstWhere('label', $value);
+            abort_unless($selectedNode, 404);
+            $selections[$parameter] = $selectedNode->label;
+            $nodes = $selectedNode->children;
+        }
+
+        abort_if(! isset($selections['country']), 404);
+        $nextParameter = collect(['country', 'state', 'city', 'area'])
+            ->first(fn ($parameter) => ! array_key_exists($parameter, $selections));
+        $levelLabel = ['state' => 'States', 'city' => 'Cities', 'area' => 'Areas'][$nextParameter] ?? 'Locations';
+
+        return view('admin.visitor-locations', compact(
+            'period',
+            'periodLabel',
+            'total',
+            'nodes',
+            'selections',
+            'nextParameter',
+            'levelLabel'
         ));
     }
 
@@ -68,5 +116,51 @@ class AdminDashboardController extends Controller
                 $row->percentage = $total > 0 ? round(($row->total / $total) * 100, 1) : 0;
                 return $row;
             });
+    }
+
+    private function visitorLocationHierarchy(Builder $query, int $total)
+    {
+        $locationColumns = ['country', 'state', 'city', 'area'];
+        $normalizedColumns = collect($locationColumns)
+            ->map(fn ($column) => "COALESCE(NULLIF({$column}, ''), 'Unknown') as normalized_{$column}")
+            ->implode(', ');
+
+        $locations = (clone $query)->selectRaw($normalizedColumns);
+        $normalizedLocationColumns = collect($locationColumns)
+            ->map(fn ($column) => 'normalized_'.$column)
+            ->all();
+
+        $rows = DB::query()
+            ->fromSub($locations, 'location_records')
+            ->selectRaw(collect($locationColumns)
+                ->map(fn ($column) => "normalized_{$column} as {$column}")
+                ->implode(', ').', COUNT(*) as total')
+            ->groupBy($normalizedLocationColumns)
+            ->orderByDesc('total')
+            ->get();
+
+        return $this->buildLocationLevel($rows, $locationColumns, $total);
+    }
+
+    private function buildLocationLevel($rows, array $levels, int $total)
+    {
+        $field = array_shift($levels);
+
+        return $rows
+            ->groupBy($field)
+            ->map(function ($group, $label) use ($levels, $total) {
+                $visits = (int) $group->sum('total');
+
+                return (object) [
+                    'label' => $label,
+                    'total' => $visits,
+                    'percentage' => $total > 0 ? round(($visits / $total) * 100, 1) : 0,
+                    'children' => $levels
+                        ? $this->buildLocationLevel($group, $levels, $total)
+                        : collect(),
+                ];
+            })
+            ->sortByDesc('total')
+            ->values();
     }
 }

@@ -19,10 +19,20 @@ class WebsiteController extends Controller
 		$visitor = Visitor::firstOrCreate([
 			'ip_address' => $location['ip'],
 			'visit_date' => Carbon::today()->toDateString(),
-		], ['country' => $location['country']]);
+		], [
+			'country' => $location['country'],
+			'state' => $location['state'],
+			'city' => $location['city'],
+			'area' => $location['area'],
+		]);
 
-		if ((! $visitor->country || $visitor->country === 'Unknown') && $location['country'] !== 'Unknown') {
-			$visitor->update(['country' => $location['country']]);
+		$locationUpdates = collect(['country', 'state', 'city', 'area'])
+			->filter(fn ($field) => (! $visitor->{$field} || $visitor->{$field} === 'Unknown') && $location[$field] !== 'Unknown')
+			->mapWithKeys(fn ($field) => [$field => $location[$field]])
+			->all();
+
+		if ($locationUpdates) {
+			$visitor->update($locationUpdates);
 		}
 
 		$latestBlogs = Blog::where('visibility', 1)->latest()->take(3)->get();

@@ -84,6 +84,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard/visitor-locations', [AdminDashboardController::class, 'visitorLocations'])->name('dashboard.visitor-locations');
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
     // FAQ Routes
@@ -185,4 +186,3 @@ Route::delete('contacts/{id}', [AdminContactController::class, 'destroy'])->name
 
 
 });
-

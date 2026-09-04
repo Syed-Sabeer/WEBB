@@ -12,7 +12,16 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('analytics:send-daily-report')
+            ->dailyAt(config('analytics.daily_report_time', '08:00'))
+            ->timezone(config('analytics.daily_report_timezone'))
+            ->withoutOverlapping();
+
+        $schedule->command('blogs:generate-with-ai')
+            ->cron(config('ai_blog.schedule', '0 09 * * 1,4'))
+            ->timezone(config('ai_blog.timezone', config('app.timezone')))
+            ->withoutOverlapping(180)
+            ->name('ai-blog-publisher');
     }
 
     /**
