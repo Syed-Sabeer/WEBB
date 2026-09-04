@@ -4,9 +4,11 @@ return [
     'site_name' => 'Avrio Global Inc.',
     'domain' => 'https://avrioglobal.io',
 
-    'default_title' => 'Avrio Global Inc. | Custom Software Development Company',
-    'default_description' => 'Avrio Global Inc. is a custom software development company building mobile apps, web applications, AI/ML solutions, and fintech, banking, and insurance software for ambitious businesses worldwide.',
-    'default_keywords' => 'software development company, custom software development, mobile app development, web app development, AI ML development, fintech software development, financial technology solutions, banking software solutions, insurance software solutions, digital marketing agency',
+   'default_title' => 'Avrio Global Inc. | FinTech Software Development Company',
+
+'default_description' => 'Avrio Global Inc. is a FinTech software development company building secure payment solutions, financial platforms, banking and insurance software, SaaS products, mobile apps, web applications, and AI/ML solutions for businesses worldwide.',
+
+'default_keywords' => 'fintech software development company, fintech development company, financial software development, payment software development, digital payment solutions, banking software development, insurance software solutions, financial technology solutions, fintech app development, fintech SaaS development, custom fintech solutions, financial platforms, AI fintech solutions, mobile app development, web application development',
 
     'logo' => 'FrontendAssets/img/white-file/avrio-logo.png',
 

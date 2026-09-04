@@ -1,8 +1,8 @@
 @extends('layouts.frontend.master')
 
-@section('title', 'Avrio Global Inc. | Custom Software Development Company')
-@section('meta_description', 'Avrio Global Inc. is a custom software development company building mobile apps, web applications, AI/ML solutions, and fintech, banking, and insurance software for ambitious businesses in Canada and worldwide.')
-@section('meta_keywords', 'software development company, custom software development company Canada, mobile app development company, web app development company, AI ML development company, fintech software development company, banking software solutions, insurance software solutions, financial technology solutions, digital marketing agency')
+@section('title', 'Avrio Global Inc. | FinTech Software Development Company')
+@section('meta_description', 'Avrio Global Inc. is a FinTech software development company delivering secure payment solutions, financial platforms, banking software, SaaS products, mobile apps, AI/ML solutions, and custom financial technology for businesses in Canada and worldwide.')
+@section('meta_keywords', 'fintech software development company, fintech development company Canada, financial software development, payment software development, payment solutions, digital payment solutions, banking software development, financial technology company, fintech app development, fintech SaaS development, custom fintech solutions, financial platforms, AI fintech solutions, insurance software development, mobile app development, web application development')
 @section('og_type', 'website')
 
 @push('schema')
