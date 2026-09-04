@@ -50,5 +50,6 @@ class AnthropicBlogGeneratorTest extends TestCase
 
         $this->assertSame('uploads/ai-blogs/modern-fintech-infrastructure.svg', $path);
         Storage::disk('public')->assertExists($path);
+        $this->assertStringContainsString('width="1080" height="675"', Storage::disk('public')->get($path));
     }
 }
