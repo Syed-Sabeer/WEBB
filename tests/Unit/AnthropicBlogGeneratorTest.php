@@ -15,7 +15,6 @@ class AnthropicBlogGeneratorTest extends TestCase
         config(['ai_blog.anthropic_api_key' => 'test-key', 'ai_blog.anthropic_model' => 'test-model']);
         $article = [
             'title' => 'A Practical Fintech Architecture Guide',
-            'summary' => 'A practical guide for technology leaders.',
             'content' => '<p onclick="alert(1)">'.str_repeat('Useful and original fintech guidance. ', 150).'</p>',
             'category' => 'Fintech',
             'tags' => ['fintech', 'architecture', 'security'],

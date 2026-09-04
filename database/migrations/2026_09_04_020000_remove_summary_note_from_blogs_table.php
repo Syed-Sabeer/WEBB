@@ -8,21 +8,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        if (Schema::hasTable('blogs') && !Schema::hasColumn('blogs', 'category')) {
+        if (Schema::hasColumn('blogs', 'summary_note')) {
             Schema::table('blogs', function (Blueprint $table) {
-                $table->string('category')->nullable()->after('content')->index();
+                $table->dropColumn('summary_note');
             });
         }
-
     }
 
     public function down(): void
     {
-        if (Schema::hasTable('blogs') && Schema::hasColumn('blogs', 'category')) {
+        if (! Schema::hasColumn('blogs', 'summary_note')) {
             Schema::table('blogs', function (Blueprint $table) {
-                $table->dropColumn('category');
+                $table->text('summary_note')->nullable()->after('content');
             });
         }
-
     }
 };

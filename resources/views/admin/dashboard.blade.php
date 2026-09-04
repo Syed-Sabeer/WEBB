@@ -4,7 +4,7 @@
 
 @section('css')
 <style>
-  .country-row{padding:12px 0;border-bottom:1px solid #eee}.country-row:last-child{border-bottom:0}.country-meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}.country-meta strong{color:#222}.country-meta span{color:#777;font-size:12px;white-space:nowrap}.country-card .progress{height:7px;background:#f0f0f0}.country-card .progress-bar{min-width:2px;background:#cf1f42}.country-card.visits .progress-bar{background:#198754}.stats-filter{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-bottom:20px}.stats-filter label{margin:0;font-weight:600;color:#333}.stats-filter select{width:auto;min-width:150px}
+  .country-row{padding:12px 0;border-bottom:1px solid #eee}.country-row:last-child{border-bottom:0}.country-meta{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}.country-meta strong{color:#222}.country-meta span{color:#777;font-size:12px;white-space:nowrap}.country-card .progress{height:7px;background:#f0f0f0}.country-card .progress-bar{min-width:2px;background:#cf1f42}.country-card.visits .progress-bar{background:#198754}.stats-filter{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-bottom:20px}.stats-filter label{margin:0;font-weight:600;color:#333}.stats-filter select{width:auto;min-width:150px}.location-link{display:block;color:inherit}.location-link:hover strong{color:#198754}.location-link .country-meta strong::after{content:'›';margin-left:8px;color:#198754;font-size:18px}
 </style>
 @endsection
 
@@ -103,23 +103,38 @@
               <noscript><button class="btn btn-primary" type="submit">Apply</button></noscript>
             </form>
             <div class="row">
-              @foreach ([['title' => 'Top Countries by Visits', 'rows' => $visitorCountries, 'class' => 'visits', 'total' => $filteredVisitorTotal], ['title' => 'Top Countries by Contact Submissions', 'rows' => $contactCountries, 'class' => 'contacts', 'total' => $filteredContactTotal]] as $countryGroup)
-                <div class="col-xl-6">
-                  <div class="card country-card {{ $countryGroup['class'] }}">
-                    <div class="card-header card-no-border"><h5>{{ $countryGroup['title'] }}</h5><p class="mb-0 text-muted">{{ $periodLabel }} &middot; {{ number_format($countryGroup['total']) }} total records</p></div>
-                    <div class="card-body pt-0">
-                      @forelse ($countryGroup['rows'] as $country)
-                        <div class="country-row">
-                          <div class="country-meta"><strong>{{ $country->country }}</strong><span>{{ number_format($country->total) }} &middot; {{ number_format($country->percentage, 1) }}%</span></div>
-                          <div class="progress" role="progressbar" aria-label="{{ $country->country }}" aria-valuenow="{{ $country->percentage }}" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: {{ $country->percentage }}%"></div></div>
-                        </div>
-                      @empty
-                        <p class="text-muted mb-0">No country data is available yet.</p>
-                      @endforelse
-                    </div>
+              <div class="col-xl-6">
+                <div class="card country-card visits">
+                  <div class="card-header card-no-border"><h5>Visits by Country</h5><p class="mb-0 text-muted">{{ $periodLabel }} &middot; {{ number_format($filteredVisitorTotal) }} total visits &middot; Select a country to view its states</p></div>
+                  <div class="card-body pt-0">
+                    @forelse ($visitorLocations as $location)
+                      <div class="country-row">
+                        <a class="location-link" href="{{ route('admin.dashboard.visitor-locations', ['period' => $period, 'country' => $location->label]) }}">
+                          <div class="country-meta"><strong>{{ $location->label }}</strong><span>{{ number_format($location->total) }} visits &middot; {{ number_format($location->percentage, 1) }}%</span></div>
+                          <div class="progress" role="progressbar" aria-label="{{ $location->label }} visits" aria-valuenow="{{ $location->percentage }}" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: {{ $location->percentage }}%"></div></div>
+                        </a>
+                      </div>
+                    @empty
+                      <p class="text-muted mb-0">No location data is available yet.</p>
+                    @endforelse
                   </div>
                 </div>
-              @endforeach
+              </div>
+              <div class="col-xl-6">
+                <div class="card country-card contacts">
+                  <div class="card-header card-no-border"><h5>Top Countries by Contact Submissions</h5><p class="mb-0 text-muted">{{ $periodLabel }} &middot; {{ number_format($filteredContactTotal) }} total records</p></div>
+                  <div class="card-body pt-0">
+                    @forelse ($contactCountries as $country)
+                      <div class="country-row">
+                        <div class="country-meta"><strong>{{ $country->country }}</strong><span>{{ number_format($country->total) }} &middot; {{ number_format($country->percentage, 1) }}%</span></div>
+                        <div class="progress" role="progressbar" aria-label="{{ $country->country }} contact submissions" aria-valuenow="{{ $country->percentage }}" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: {{ $country->percentage }}%"></div></div>
+                      </div>
+                    @empty
+                      <p class="text-muted mb-0">No country data is available yet.</p>
+                    @endforelse
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Container-fluid Ends-->
