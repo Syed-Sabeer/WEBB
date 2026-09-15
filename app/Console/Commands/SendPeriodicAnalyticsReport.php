@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\ContactSubmission;
 use App\Models\Visitor;
-use App\Services\AnalyticsCsvBuilder;
+use App\Services\AnalyticsExcelBuilder;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Mail;
@@ -15,9 +15,9 @@ class SendPeriodicAnalyticsReport extends Command
         {period : weekly or monthly}
         {--date= : Date inside the desired period (YYYY-MM-DD); defaults to the previous completed period}';
 
-    protected $description = 'Email a weekly or monthly filter-ready analytics CSV report';
+    protected $description = 'Email a weekly or monthly analytics Excel report with column filters';
 
-    public function handle(AnalyticsCsvBuilder $csvBuilder): int
+    public function handle(AnalyticsExcelBuilder $excelBuilder): int
     {
         $period = strtolower($this->argument('period'));
         if (! in_array($period, ['weekly', 'monthly'], true)) {
@@ -45,13 +45,13 @@ class SendPeriodicAnalyticsReport extends Command
             ->whereBetween('created_at', [$start->copy()->startOfDay(), $end->copy()->endOfDay()])
             ->oldest('created_at')->get();
 
-        $csv = $csvBuilder->build($visitors, $contacts);
-        $filename = sprintf('avrio-%s-analytics-%s-to-%s.csv', $period, $start->toDateString(), $end->toDateString());
+        $spreadsheet = $excelBuilder->build($visitors, $contacts);
+        $filename = sprintf('avrio-%s-analytics-%s-to-%s.xml', $period, $start->toDateString(), $end->toDateString());
 
-        Mail::send('emails.periodic-analytics-report', compact('period', 'start', 'end', 'visitors', 'contacts'), function ($mail) use ($recipient, $period, $start, $end, $csv, $filename) {
+        Mail::send('emails.periodic-analytics-report', compact('period', 'start', 'end', 'visitors', 'contacts'), function ($mail) use ($recipient, $period, $start, $end, $spreadsheet, $filename) {
             $mail->to($recipient)
                 ->subject(sprintf('Avrio Global %s report - %s to %s', ucfirst($period), $start->toDateString(), $end->toDateString()))
-                ->attachData($csv, $filename, ['mime' => 'text/csv']);
+                ->attachData($spreadsheet, $filename, ['mime' => 'application/vnd.ms-excel']);
         });
 
         $this->info(sprintf(

@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use App\Models\ContactSubmission;
 use App\Models\Visitor;
-use App\Services\AnalyticsCsvBuilder;
+use App\Services\AnalyticsExcelBuilder;
 use App\Services\PostalAreaResolver;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -12,7 +12,7 @@ use Tests\TestCase;
 
 class AnalyticsReportingTest extends TestCase
 {
-    public function test_csv_contains_filterable_location_and_ip_columns(): void
+    public function test_excel_report_contains_location_columns_and_auto_filter(): void
     {
         $visitor = new Visitor([
             'ip_address' => '203.0.113.10', 'country' => 'Pakistan', 'state' => 'Sindh',
@@ -30,11 +30,14 @@ class AnalyticsReportingTest extends TestCase
         $contact->id = 2;
         $contact->created_at = '2026-09-14 11:30:00';
 
-        $csv = app(AnalyticsCsvBuilder::class)->build(collect([$visitor]), collect([$contact]));
+        $spreadsheet = app(AnalyticsExcelBuilder::class)->build(collect([$visitor]), collect([$contact]));
 
-        $this->assertStringContainsString('"IP Address",Country,State,City,"Postal Code",Area', $csv);
-        $this->assertStringContainsString('203.0.113.10,Pakistan,Sindh,Karachi,74000,"Karachi Central"', $csv);
-        $this->assertStringContainsString("'=Unsafe Formula", $csv);
+        $this->assertStringContainsString('<Data ss:Type="String">Country</Data>', $spreadsheet);
+        $this->assertStringContainsString('<Data ss:Type="String">Postal Code</Data>', $spreadsheet);
+        $this->assertStringContainsString('<Data ss:Type="String">Record Type</Data>', $spreadsheet);
+        $this->assertStringContainsString('<Data ss:Type="DateTime">2026-09-14T00:00:00.000</Data>', $spreadsheet);
+        $this->assertStringContainsString('<AutoFilter x:Range="R1C1:R3C15"', $spreadsheet);
+        $this->assertStringContainsString('=Unsafe Formula', $spreadsheet);
     }
 
     public function test_geonames_returns_a_place_name_for_postal_area(): void
