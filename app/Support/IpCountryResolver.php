@@ -3,6 +3,7 @@
 namespace App\Support;
 
 use App\Models\Country;
+use App\Services\PostalAreaResolver;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
@@ -18,13 +19,15 @@ class IpCountryResolver
         if ($headerCountry && strtoupper($headerCountry) !== 'XX') {
             $countryCode = strtoupper($headerCountry);
             $countryName = Country::where('code', $countryCode)->value('name');
+            $postalCode = $request->header('CF-Postal-Code') ?: $request->header('X-Postal-Code');
             return [
                 'ip' => $ip,
                 'country' => $countryName ?: $countryCode,
                 'state' => $request->header('CF-Region') ?: 'Unknown',
                 'city' => $request->header('CF-IPCity') ?: 'Unknown',
+                'postal_code' => $postalCode,
                 'area' => $request->header('CF-IPDistrict')
-                    ?: self::postalArea($request->header('CF-Postal-Code') ?: $request->header('X-Postal-Code')),
+                    ?: app(PostalAreaResolver::class)->fallback($postalCode),
             ];
         }
 
@@ -32,20 +35,23 @@ class IpCountryResolver
             return self::unknownLocation($ip);
         }
 
-        $location = Cache::remember('ip-location-v2:'.$ip, now()->addDays(30), function () use ($ip) {
+        $location = Cache::remember('ip-location-v3:'.$ip, now()->addDays(30), function () use ($ip) {
             try {
                 $response = Http::connectTimeout(2)->timeout(3)->get(
                     'http://ip-api.com/json/'.urlencode($ip),
-                    ['fields' => 'status,country,regionName,city,district,zip']
+                    ['fields' => 'status,country,countryCode,regionName,city,district,zip']
                 );
 
                 if ($response->successful() && $response->json('status') === 'success') {
+                    $postalCode = $response->json('zip');
+
                     return [
                         'country' => $response->json('country') ?: 'Unknown',
                         'state' => $response->json('regionName') ?: 'Unknown',
                         'city' => $response->json('city') ?: 'Unknown',
+                        'postal_code' => $postalCode,
                         'area' => $response->json('district')
-                            ?: self::postalArea($response->json('zip')),
+                            ?: app(PostalAreaResolver::class)->fallback($postalCode),
                     ];
                 }
 
@@ -66,12 +72,9 @@ class IpCountryResolver
             'country' => 'Unknown',
             'state' => 'Unknown',
             'city' => 'Unknown',
+            'postal_code' => null,
             'area' => 'Unknown',
         ], static fn ($value, $key) => $key !== 'ip' || $value !== null, ARRAY_FILTER_USE_BOTH);
     }
 
-    private static function postalArea(?string $postalCode): string
-    {
-        return $postalCode ? 'Postal code '.$postalCode : 'Unknown';
-    }
 }

@@ -38,7 +38,7 @@ class SendDailyAnalyticsReport extends Command
             ->get();
 
         $locations = $visitors
-            ->groupBy(fn (Visitor $visitor) => collect(['country', 'state', 'city', 'area'])
+            ->groupBy(fn (Visitor $visitor) => collect(['country', 'state', 'city', 'postal_code', 'area'])
                 ->map(fn ($field) => $visitor->{$field} ?: 'Unknown')
                 ->join('|'))
             ->map(function ($visitors) {
@@ -48,6 +48,7 @@ class SendDailyAnalyticsReport extends Command
                     'country' => $visitor->country ?: 'Unknown',
                     'state' => $visitor->state ?: 'Unknown',
                     'city' => $visitor->city ?: 'Unknown',
+                    'postal_code' => $visitor->postal_code ?: 'Unknown',
                     'area' => $visitor->area ?: 'Unknown',
                     'total' => $visitors->count(),
                 ];

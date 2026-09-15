@@ -12,10 +12,11 @@ class IpCountryResolverTest extends TestCase
 {
     public function test_it_uses_postal_code_when_district_is_unavailable(): void
     {
-        Cache::forget('ip-location-v2:152.58.184.113');
+        Cache::forget('ip-location-v3:152.58.184.113');
         Http::fake(['ip-api.com/*' => Http::response([
             'status' => 'success',
             'country' => 'India',
+            'countryCode' => 'IN',
             'regionName' => 'Uttar Pradesh',
             'city' => 'Kanpur',
             'district' => '',
@@ -26,6 +27,7 @@ class IpCountryResolverTest extends TestCase
             'REMOTE_ADDR' => '152.58.184.113',
         ]));
 
-        $this->assertSame('Postal code 208001', $location['area']);
+        $this->assertSame('208001', $location['postal_code']);
+        $this->assertSame('Postal area 208001', $location['area']);
     }
 }

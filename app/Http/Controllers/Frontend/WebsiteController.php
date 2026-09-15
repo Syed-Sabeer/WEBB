@@ -23,10 +23,11 @@ class WebsiteController extends Controller
 			'country' => $location['country'],
 			'state' => $location['state'],
 			'city' => $location['city'],
+			'postal_code' => $location['postal_code'],
 			'area' => $location['area'],
 		]);
 
-		$locationUpdates = collect(['country', 'state', 'city', 'area'])
+		$locationUpdates = collect(['country', 'state', 'city', 'postal_code', 'area'])
 			->filter(fn ($field) => (! $visitor->{$field} || $visitor->{$field} === 'Unknown') && $location[$field] !== 'Unknown')
 			->mapWithKeys(fn ($field) => [$field => $location[$field]])
 			->all();

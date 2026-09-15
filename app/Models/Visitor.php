@@ -11,6 +11,7 @@ class Visitor extends Model
         'country',
         'state',
         'city',
+        'postal_code',
         'area',
         'visit_date',
     ];

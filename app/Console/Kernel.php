@@ -17,6 +17,24 @@ class Kernel extends ConsoleKernel
             ->timezone(config('analytics.daily_report_timezone'))
             ->withoutOverlapping();
 
+        $schedule->command('analytics:enrich-postal-areas')
+            ->dailyAt(config('analytics.postal_enrichment_time', '07:30'))
+            ->timezone(config('analytics.daily_report_timezone'))
+            ->withoutOverlapping()
+            ->name('postal-area-enrichment');
+
+        $schedule->command('analytics:send-periodic-report weekly')
+            ->cron(config('analytics.weekly_report_schedule', '10 08 * * 1'))
+            ->timezone(config('analytics.daily_report_timezone'))
+            ->withoutOverlapping()
+            ->name('weekly-analytics-report');
+
+        $schedule->command('analytics:send-periodic-report monthly')
+            ->cron(config('analytics.monthly_report_schedule', '20 08 1 * *'))
+            ->timezone(config('analytics.daily_report_timezone'))
+            ->withoutOverlapping()
+            ->name('monthly-analytics-report');
+
         $schedule->command('blogs:generate-with-ai')
             ->cron(config('ai_blog.schedule', '0 09 * * 1,4'))
             ->timezone(config('ai_blog.timezone', config('app.timezone')))

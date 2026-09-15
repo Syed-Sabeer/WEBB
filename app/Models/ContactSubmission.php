@@ -19,6 +19,7 @@ class ContactSubmission extends Model
         'country',
         'state',
         'city',
+        'postal_code',
         'area',
     ];
 

@@ -82,6 +82,7 @@ class ContactController extends Controller
                     'country' => $location['country'],
                     'state' => $location['state'],
                     'city' => $location['city'],
+                    'postal_code' => $location['postal_code'],
                     'area' => $location['area'],
                 ]);
             });
