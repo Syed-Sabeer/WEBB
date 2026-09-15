@@ -32,28 +32,23 @@ class AnalyticsReportingTest extends TestCase
 
         $spreadsheet = app(AnalyticsExcelBuilder::class)->build(collect([$visitor]), collect([$contact]));
 
-        $this->assertStringContainsString('<Data ss:Type="String">Country</Data>', $spreadsheet);
-        $this->assertStringContainsString('<Data ss:Type="String">Postal Code</Data>', $spreadsheet);
-        $this->assertStringContainsString('<Data ss:Type="String">Record Type</Data>', $spreadsheet);
-        $this->assertStringContainsString('<Data ss:Type="DateTime">2026-09-14T00:00:00.000</Data>', $spreadsheet);
-        $this->assertStringContainsString('<AutoFilter x:Range="R1C1:R3C15"', $spreadsheet);
-        $this->assertStringContainsString('=Unsafe Formula', $spreadsheet);
+        $this->assertStringStartsWith("PK\x03\x04", $spreadsheet);
+        $this->assertStringContainsString('[Content_Types].xml', $spreadsheet);
+        $this->assertStringContainsString('xl/worksheets/sheet1.xml', $spreadsheet);
+        $this->assertStringContainsString('xl/styles.xml', $spreadsheet);
     }
 
-    public function test_geonames_returns_a_place_name_for_postal_area(): void
+    public function test_nominatim_returns_the_most_specific_place_for_postal_area(): void
     {
-        config(['analytics.geonames_username' => 'test-user']);
         Cache::flush();
-        Http::fake(['secure.geonames.org/*' => Http::response([
-            'postalCodes' => [[
-                'placeName' => 'Gulshan-e-Iqbal',
-                'adminName2' => 'Karachi',
-            ]],
-        ])]);
+        Http::fake(['nominatim.openstreetmap.org/*' => Http::response([[
+            'address' => ['town' => 'Jamshed Town', 'city_district' => 'Gulshan District'],
+        ]])]);
 
         $area = app(PostalAreaResolver::class)->resolve('75300', 'PK');
 
-        $this->assertSame('Gulshan-e-Iqbal', $area);
-        Http::assertSent(fn ($request) => str_contains($request->url(), 'secure.geonames.org/postalCodeSearchJSON'));
+        $this->assertSame('Jamshed Town', $area);
+        Http::assertSent(fn ($request) => str_contains($request->url(), 'nominatim.openstreetmap.org/search')
+            && $request->hasHeader('User-Agent'));
     }
 }

@@ -46,12 +46,12 @@ class SendPeriodicAnalyticsReport extends Command
             ->oldest('created_at')->get();
 
         $spreadsheet = $excelBuilder->build($visitors, $contacts);
-        $filename = sprintf('avrio-%s-analytics-%s-to-%s.xml', $period, $start->toDateString(), $end->toDateString());
+        $filename = sprintf('avrio-%s-analytics-%s-to-%s.xlsx', $period, $start->toDateString(), $end->toDateString());
 
         Mail::send('emails.periodic-analytics-report', compact('period', 'start', 'end', 'visitors', 'contacts'), function ($mail) use ($recipient, $period, $start, $end, $spreadsheet, $filename) {
             $mail->to($recipient)
                 ->subject(sprintf('Avrio Global %s report - %s to %s', ucfirst($period), $start->toDateString(), $end->toDateString()))
-                ->attachData($spreadsheet, $filename, ['mime' => 'application/vnd.ms-excel']);
+                ->attachData($spreadsheet, $filename, ['mime' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']);
         });
 
         $this->info(sprintf(

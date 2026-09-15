@@ -18,52 +18,56 @@ class PostalAreaResolver
         }
 
         $fallback = 'Postal area '.$postalCode;
-        $username = config('analytics.geonames_username');
-
-        if (! $username) {
-            return $fallback;
+        $cacheKey = 'postal-area:v4:'.sha1($countryCode.'|'.$postalCode);
+        if ($cached = Cache::get($cacheKey)) {
+            return $cached;
         }
 
-        return Cache::remember(
-            'postal-area:v2:'.sha1($countryCode.'|'.$postalCode),
-            now()->addDays(90),
-            function () use ($postalCode, $countryCode, $username, $fallback) {
-                try {
-                    $response = Http::connectTimeout(3)->timeout(8)->retry(2, 500)
-                        ->get('https://secure.geonames.org/postalCodeSearchJSON', [
-                            'postalcode' => $postalCode,
-                            'country' => $countryCode,
-                            'maxRows' => 10,
-                            'username' => $username,
-                        ]);
+        try {
+            $query = [
+                    'postalcode' => $postalCode,
+                    'format' => 'jsonv2',
+                    'addressdetails' => 1,
+                    'limit' => 1,
+                ];
+            if (strlen($countryCode) === 2) {
+                $query['countrycodes'] = strtolower($countryCode);
+            } elseif ($countryCode !== '') {
+                $query['country'] = $countryCode;
+            }
 
-                    if (! $response->successful() || $response->json('status.message')) {
-                        Log::warning('Postal area geocoding failed', [
-                            'postal_code' => $postalCode,
-                            'country_code' => $countryCode,
-                            'status' => $response->json('status.message'),
-                        ]);
-                        return $fallback;
-                    }
+            $response = Http::withHeaders([
+                    'User-Agent' => config('analytics.nominatim_user_agent'),
+                    'Accept-Language' => 'en',
+                ])->connectTimeout(3)->timeout(8)->retry(2, 1000)
+                ->get(config('analytics.nominatim_url'), $query);
 
-                    $place = collect($response->json('postalCodes', []))->first();
-                    foreach (['placeName', 'adminName3', 'adminName2'] as $field) {
-                        if (! empty($place[$field])) {
-                            return $place[$field];
-                        }
-                    }
+            if (! $response->successful()) {
+                Log::warning('Postal area geocoding failed', [
+                    'postal_code' => $postalCode,
+                    'country_code' => $countryCode,
+                    'status' => $response->status(),
+                ]);
+                return $fallback;
+            }
 
-                    return $fallback;
-                } catch (\Throwable $error) {
-                    Log::warning('Postal area geocoding request failed', [
-                        'postal_code' => $postalCode,
-                        'country_code' => $countryCode,
-                        'message' => $error->getMessage(),
-                    ]);
-                    return $fallback;
+            $address = data_get($response->json(), '0.address', []);
+            foreach (['suburb', 'neighbourhood', 'quarter', 'town', 'city_district', 'village', 'municipality', 'county', 'city'] as $field) {
+                if (! empty($address[$field])) {
+                    Cache::put($cacheKey, $address[$field], now()->addDays(90));
+                    return $address[$field];
                 }
             }
-        );
+
+            return $fallback;
+        } catch (\Throwable $error) {
+            Log::warning('Postal area geocoding request failed', [
+                'postal_code' => $postalCode,
+                'country_code' => $countryCode,
+                'message' => $error->getMessage(),
+            ]);
+            return $fallback;
+        }
     }
 
     public function fallback(?string $postalCode): string

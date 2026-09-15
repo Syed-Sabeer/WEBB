@@ -16,11 +16,6 @@ class EnrichPostalAreas extends Command
 
     public function handle(PostalAreaResolver $resolver): int
     {
-        if (! config('analytics.geonames_username')) {
-            $this->warn('GEONAMES_USERNAME is not configured; postal areas were not enriched.');
-            return self::SUCCESS;
-        }
-
         $locations = Visitor::query()
             ->whereNotNull('postal_code')
             ->where(function ($query) {
@@ -37,7 +32,10 @@ class EnrichPostalAreas extends Command
             ->values();
 
         $updated = 0;
-        foreach ($locations as $location) {
+        foreach ($locations as $index => $location) {
+            if ($index > 0) {
+                usleep(15_000_000);
+            }
             $countryCode = strlen((string) $location->country) === 2
                 ? strtoupper($location->country)
                 : Country::where('name', $location->country)->value('code');

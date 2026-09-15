@@ -27,7 +27,7 @@ class IpCountryResolver
                 'city' => $request->header('CF-IPCity') ?: 'Unknown',
                 'postal_code' => $postalCode,
                 'area' => $request->header('CF-IPDistrict')
-                    ?: app(PostalAreaResolver::class)->fallback($postalCode),
+                    ?: app(PostalAreaResolver::class)->resolve($postalCode, $countryCode),
             ];
         }
 
@@ -35,7 +35,7 @@ class IpCountryResolver
             return self::unknownLocation($ip);
         }
 
-        $location = Cache::remember('ip-location-v3:'.$ip, now()->addDays(30), function () use ($ip) {
+        $location = Cache::remember('ip-location-v4:'.$ip, now()->addDays(30), function () use ($ip) {
             try {
                 $response = Http::connectTimeout(2)->timeout(3)->get(
                     'http://ip-api.com/json/'.urlencode($ip),
@@ -44,6 +44,7 @@ class IpCountryResolver
 
                 if ($response->successful() && $response->json('status') === 'success') {
                     $postalCode = $response->json('zip');
+                    $countryCode = $response->json('countryCode');
 
                     return [
                         'country' => $response->json('country') ?: 'Unknown',
@@ -51,7 +52,7 @@ class IpCountryResolver
                         'city' => $response->json('city') ?: 'Unknown',
                         'postal_code' => $postalCode,
                         'area' => $response->json('district')
-                            ?: app(PostalAreaResolver::class)->fallback($postalCode),
+                            ?: app(PostalAreaResolver::class)->resolve($postalCode, $countryCode),
                     ];
                 }
 
