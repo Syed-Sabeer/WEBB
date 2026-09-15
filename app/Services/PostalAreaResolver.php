@@ -37,10 +37,14 @@ class PostalAreaResolver
             }
 
             $response = Http::withHeaders([
-                    'User-Agent' => config('analytics.nominatim_user_agent'),
+                    'User-Agent' => config('analytics.nominatim_user_agent')
+                        ?: 'AvrioGlobalAnalytics/1.0 (https://avrioglobal.io/contact)',
                     'Accept-Language' => 'en',
                 ])->connectTimeout(3)->timeout(8)->retry(2, 1000)
-                ->get(config('analytics.nominatim_url'), $query);
+                ->get(
+                    config('analytics.nominatim_url') ?: 'https://nominatim.openstreetmap.org/search',
+                    $query
+                );
 
             if (! $response->successful()) {
                 Log::warning('Postal area geocoding failed', [

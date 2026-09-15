@@ -35,7 +35,7 @@ class IpCountryResolver
             return self::unknownLocation($ip);
         }
 
-        $location = Cache::remember('ip-location-v4:'.$ip, now()->addDays(30), function () use ($ip) {
+        $location = Cache::remember('ip-location-v5:'.$ip, now()->addDays(30), function () use ($ip) {
             try {
                 $response = Http::connectTimeout(2)->timeout(3)->get(
                     'http://ip-api.com/json/'.urlencode($ip),
@@ -62,6 +62,16 @@ class IpCountryResolver
                 return self::unknownLocation();
             }
         });
+
+        if (! empty($location['postal_code']) && (
+            empty($location['area'])
+            || $location['area'] === 'Unknown'
+            || str_starts_with($location['area'], 'Postal area ')
+        )) {
+            $countryCode = Country::where('name', $location['country'])->value('code');
+            $location['area'] = app(PostalAreaResolver::class)
+                ->resolve($location['postal_code'], $countryCode ?: $location['country']);
+        }
 
         return array_merge(['ip' => $ip], $location);
     }
